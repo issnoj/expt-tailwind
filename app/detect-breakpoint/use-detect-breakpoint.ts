@@ -15,7 +15,7 @@ const breakpoints = Object.entries(screens)
   })
   .sort((a, b) => b.value - a.value);
 
-export const useTailwindBreakpoint = () => {
+export const useDetectBreakpoint = () => {
   const [breakpoint, setBreakpoint] = useState<Key>();
   const currentBreakpointRef = useRef<Key>();
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();

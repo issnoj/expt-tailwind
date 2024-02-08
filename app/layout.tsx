@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Link } from '@/components/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +17,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className={'grid grid-cols-[300px,1fr]'}>
+          <nav>
+            <div
+              className={
+                'fixed flex h-screen w-[300px] flex-col gap-4 overflow-y-auto overscroll-contain p-10'
+              }
+            >
+              <Link href={'/detect-breakpoint'}>detect-breakpoint</Link>
+              <Link href={'/link'}>link</Link>
+            </div>
+          </nav>
+          <main>{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
