@@ -4,7 +4,7 @@ import tailwindConfig from '../../tailwind.config';
 
 const screens = resolveConfig(tailwindConfig).theme.screens;
 
-type Key = keyof typeof screens;
+type Key = keyof typeof screens | 'mobile' | undefined;
 
 const breakpoints = Object.entries(screens)
   .map(([key, value]) => {
@@ -29,9 +29,9 @@ export const useDetectBreakpoint = () => {
         );
         if (newBreakpoint?.key !== currentBreakpointRef.current) {
           currentBreakpointRef.current = newBreakpoint?.key;
-          setBreakpoint(newBreakpoint?.key);
+          setBreakpoint(newBreakpoint?.key || 'mobile');
         }
-      }, 100);
+      }, 50);
     };
 
     handleResize();

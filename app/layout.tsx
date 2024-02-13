@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Link } from '@/components/link';
+import { ThemeProvider } from '@/components/theme-provider';
+import { SideNav } from '@/components/side-nav';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,21 +17,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className={'grid grid-cols-[300px,1fr]'}>
-          <nav>
-            <div
-              className={
-                'fixed flex h-screen w-[300px] flex-col gap-4 overflow-y-auto overscroll-contain p-10'
-              }
-            >
-              <Link href={'/detect-breakpoint'}>detect-breakpoint</Link>
-              <Link href={'/link'}>link</Link>
-            </div>
-          </nav>
-          <main>{children}</main>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className={'grid grid-cols-[300px,1fr]'}>
+            <SideNav />
+            <main>{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

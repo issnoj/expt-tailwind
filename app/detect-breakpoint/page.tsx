@@ -1,10 +1,5 @@
-import { DetectBreakpoint } from '@/app/detect-breakpoint/detect-breakpoint';
-import { Display } from '@/components/display';
+import { DetectBreakpointPage } from '@/components/detect-breakpoint/detect-breakpoint-page';
 
 export default function Page() {
-  return (
-    <Display direction={'row'}>
-      <DetectBreakpoint />
-    </Display>
-  );
+  return <DetectBreakpointPage />;
 }
