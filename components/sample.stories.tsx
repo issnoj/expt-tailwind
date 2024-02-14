@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Sample } from './sample';
+import { userEvent, within } from '@storybook/test';
+import { expect } from '@storybook/jest';
 
 const meta: Meta<typeof Sample> = {
   component: Sample,
@@ -25,6 +27,11 @@ function hello() {
 }
 hello();
 `,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('switch'));
+    await expect(canvas.getByText('function')).toBeVisible();
   },
 };
 
