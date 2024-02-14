@@ -24,11 +24,15 @@ export const Sample = ({ code, meta, desc, children }: Props) => {
         {code && (
           <Label
             className={cn(
-              'flex cursor-pointer items-center gap-2 text-foreground/40 hover:text-foreground',
+              'flex cursor-pointer items-center gap-2 text-foreground/60 hover:text-foreground',
               showCode && 'text-foreground',
             )}
           >
-            <Switch checked={showCode} onCheckedChange={handleCheckedChange} />
+            <Switch
+              checked={showCode}
+              onCheckedChange={handleCheckedChange}
+              aria-label={'コードを表示する'}
+            />
             コードを表示する
           </Label>
         )}
