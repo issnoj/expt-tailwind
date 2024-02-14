@@ -1,5 +1,5 @@
 import { Markdown } from '@/components/ui/markdown';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';

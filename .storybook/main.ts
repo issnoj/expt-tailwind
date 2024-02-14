@@ -5,14 +5,14 @@ const config: StorybookConfig = {
   stories: [
     '../stories/**/*.mdx',
     '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    '../components/**/*.stories.ts',
+    '../components/**/*.stories.@(ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-themes'
+    '@storybook/addon-themes',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -21,7 +21,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  webpackFinal: async (config, options) => {
+  webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,

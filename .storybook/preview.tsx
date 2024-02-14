@@ -12,6 +12,13 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className={'m-10'}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const decorators = [
