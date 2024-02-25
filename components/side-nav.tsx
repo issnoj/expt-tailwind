@@ -6,12 +6,14 @@ export const SideNav = () => {
     <nav>
       <div
         className={
-          'fixed flex h-screen w-[300px] flex-col gap-4 overflow-y-auto overscroll-contain p-10'
+          'fixed flex h-screen w-[300px] flex-col gap-4 overflow-y-auto overscroll-contain p-10 text-sm'
         }
       >
         <ModeToggle />
+        <hr />
         <Link href={'/detect-breakpoint'}>ブレークポイントの取得</Link>
         <Link href={'/link'}>リンク</Link>
+        <Link href={'/kanban'}>カンバン</Link>
       </div>
     </nav>
   );
