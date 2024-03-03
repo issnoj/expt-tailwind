@@ -38,7 +38,7 @@ export const Sample = ({ code, meta, desc, children }: Props) => {
         )}
         {desc && <p>{desc}</p>}
         {showCode && code && (
-          <Markdown markdown={`~~~tsx ${meta} ${code}~~~`} />
+          <Markdown markdown={`~~~tsx ${meta} ${code}\n~~~`} />
         )}
       </div>
     </div>
