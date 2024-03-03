@@ -14,6 +14,7 @@ export const SideNav = () => {
         <Link href={'/detect-breakpoint'}>ブレークポイントの取得</Link>
         <Link href={'/link'}>リンク</Link>
         <Link href={'/kanban'}>カンバン</Link>
+        <Link href={'/motion'}>モーション</Link>
       </div>
     </nav>
   );

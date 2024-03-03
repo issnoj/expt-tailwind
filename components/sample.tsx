@@ -8,7 +8,7 @@ type Props = {
   children: React.ReactNode;
   code?: string;
   meta?: string;
-  desc?: string;
+  desc?: React.ReactNode;
 };
 
 export const Sample = ({ code, meta, desc, children }: Props) => {
