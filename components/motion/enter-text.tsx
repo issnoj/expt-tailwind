@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -13,7 +15,7 @@ export const EnterText = () => {
   return (
     <div>
       <Button onClick={handleClick}>再表示</Button>
-      <div className={'mt-4 w-[200px]'}>
+      <div className={'mt-4 h-[50px] w-[200px]'}>
         {text.split('').map((str, i) => (
           <motion.span
             className={'inline-block'}

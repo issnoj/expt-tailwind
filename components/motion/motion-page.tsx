@@ -6,6 +6,7 @@ import { HeartButton } from '@/components/motion/heart-button';
 import { Sample } from '@/components/sample';
 import { Link } from '@/components/ui/link';
 import { EnterText } from '@/components/motion/enter-text';
+import { StaggerMenu } from '@/components/motion/stagger-menu';
 
 export const MotionPage = () => {
   return (
@@ -120,6 +121,22 @@ export const HeartButton = () => {
 `}
       >
         <EnterText />
+      </Sample>
+      <Sample
+        desc={
+          <>
+            Framer Motion の{' '}
+            <Link
+              href={'https://www.framer.com/motion/stagger/'}
+              target={'_blank'}
+            >
+              stagger
+            </Link>{' '}
+            で遅延
+          </>
+        }
+      >
+        <StaggerMenu />
       </Sample>
     </Content>
   );

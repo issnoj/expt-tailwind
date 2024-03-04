@@ -1,3 +1,5 @@
+'use client';
+
 import { Markdown } from '@/components/ui/markdown';
 import { useState } from 'react';
 import { Switch } from '@/components/ui/switch';
@@ -36,7 +38,7 @@ export const Sample = ({ code, meta, desc, children }: Props) => {
             コードを表示する
           </Label>
         )}
-        {desc && <p>{desc}</p>}
+        {desc && <div>{desc}</div>}
         {showCode && code && (
           <Markdown markdown={`~~~tsx ${meta} ${code}\n~~~`} />
         )}
