@@ -8,7 +8,9 @@ import { Link } from '@/components/ui/link';
 import { EnterText } from '@/components/motion/enter-text';
 import { StaggerMenu } from '@/components/motion/stagger-menu';
 import { HamburgerMenu } from '@/components/motion/hamburger-menu';
-import { VariantLabels, Variants } from 'framer-motion';
+import { motion, VariantLabels, Variants } from 'framer-motion';
+import { TabSample } from '@/components/motion/tab-sample';
+import { cn } from '@/lib/utils';
 
 export const MotionPage = () => {
   return (
@@ -249,6 +251,33 @@ export const HamburgerButton = ({
 `}
       >
         <HamburgerMenu />
+      </Sample>
+      <Sample
+        desc={<>同じ layoutId を使うことで、別要素からアニメーション</>}
+        code={`
+<ul className={'border-b-1 flex w-full border-b'}>
+  {tabs.map((item) => (
+    <li
+      key={item.label}
+      className={cn(
+        'relative flex-1 cursor-pointer p-1 pb-2',
+        item === selectedTab ? 'bg-secondary' : '',
+      )}
+      onClick={() => setSelectedTab(item)}
+    >
+      {\`\${item.icon} \${item.label}\`}
+      {item === selectedTab ? (
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500"
+          layoutId="underline"
+        />
+      ) : null}
+    </li>
+  ))}
+</ul>
+`}
+      >
+        <TabSample />
       </Sample>
     </Content>
   );
