@@ -25,39 +25,37 @@ export const HeartButton = () => {
   };
 
   return (
-    <>
-      <motion.button
+    <motion.button
         className={
           'flex h-8 items-center gap-2 overflow-hidden rounded-full bg-secondary px-4'
         }
-        whileTap={{ scale: 1.1 }}
         onClick={handleClick}
+        whileTap={{ scale: 1.1 }}
       >
         <Heart
+          className={cn(clicked ? 'fill-red-500 text-primary' : 'text-red-500')}
           size={'1em'}
           strokeWidth={clicked ? 0 : 2}
-          className={cn(clicked ? 'fill-red-500 text-primary' : 'text-red-500')}
         />
         <div className={'relative'}>
           <div className={'collapse font-mono'}>{value}</div>
-          <AnimatePresence initial={false} custom={clicked}>
+          <AnimatePresence custom={clicked} initial={false}>
             <motion.div
-              className={'absolute left-0 top-0 font-mono'}
-              variants={variants}
-              custom={clicked}
-              key={value}
-              initial="enter"
               animate={'center'}
+              className={'absolute left-0 top-0 font-mono'}
+              custom={clicked}
               exit={'exit'}
+              initial="enter"
+              key={value}
               transition={{
                 ease: 'easeIn',
               }}
+              variants={variants}
             >
               {value}
             </motion.div>
           </AnimatePresence>
         </div>
       </motion.button>
-    </>
   );
 };

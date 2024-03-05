@@ -13,8 +13,8 @@ export const HamburgerMenu = () => {
   return (
     <HamburgerButton
       className={'bg-secondary text-blue-500'}
-      open={open}
       onClick={handleClick}
+      open={open}
     />
   );
 };

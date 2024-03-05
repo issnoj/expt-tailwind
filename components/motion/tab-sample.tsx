@@ -17,11 +17,11 @@ export const TabSample = () => {
         <ul className={'border-b-1 flex w-full border-b'}>
           {tabs.map((item) => (
             <li
-              key={item.label}
               className={cn(
                 'relative flex-1 cursor-pointer p-1 pb-2',
                 item === selectedTab ? 'bg-secondary' : '',
               )}
+              key={item.label}
               onClick={() => setSelectedTab(item)}
             >
               {`${item.icon} ${item.label}`}
@@ -38,10 +38,10 @@ export const TabSample = () => {
       <main className={'flex h-full items-center justify-center'}>
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedTab ? selectedTab.label : 'empty'}
-            initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
+            initial={{ y: 10, opacity: 0 }}
+            key={selectedTab ? selectedTab.label : 'empty'}
             transition={{ duration: 0.2 }}
           >
             {selectedTab.icon}
@@ -49,5 +49,23 @@ export const TabSample = () => {
         </AnimatePresence>
       </main>
     </div>
+  );
+};
+
+const Test = ({ text, checked }: { text?: string; checked: boolean }) => {
+  const [count, setCount] = useState(0);
+  return <div>{text}</div>;
+};
+
+const Test2 = () => {
+  const value = true;
+  return (
+    <>
+      <Test checked={value} text="aaaaa" />
+      <Test checked={false} />
+      <Test checked />
+      {'test'}
+      <div />
+    </>
   );
 };

@@ -34,28 +34,28 @@ const Board = () => {
   return (
     <div className={'flex h-full gap-3 overflow-scroll'}>
       <Column
-        title={'Backlog'}
+        cards={cards}
         column={'backlog'}
-        cards={cards}
         setCards={setCards}
+        title={'Backlog'}
       />
       <Column
-        title={'TODO'}
+        cards={cards}
         column={'todo'}
-        cards={cards}
         setCards={setCards}
+        title={'TODO'}
       />
       <Column
-        title={'In progress'}
+        cards={cards}
         column={'doing'}
-        cards={cards}
         setCards={setCards}
+        title={'In progress'}
       />
       <Column
-        title={'Completed'}
-        column={'done'}
         cards={cards}
+        column={'done'}
         setCards={setCards}
+        title={'Completed'}
       />
       <BurnBarrel setCards={setCards} />
     </div>
@@ -186,17 +186,17 @@ const Column = ({
         </span>
       </div>
       <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDragEnd}
         className={cn(
           `size-full transition-colors`,
           active && 'bg-secondary/60',
         )}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        onDrop={handleDragEnd}
       >
         {filteredCards.map((card) => {
           return (
-            <Card key={card.id} card={card} handleDragStart={handleDragStart} />
+            <Card card={card} handleDragStart={handleDragStart} key={card.id} />
           );
         })}
         <DropIndicator beforeId={'-1'} column={column} />
@@ -220,15 +220,15 @@ const Card = ({
     <>
       <DropIndicator beforeId={card.id} column={card.column} />
       <motion.div
+        className={
+          'cursor-grab rounded border bg-secondary p-3 active:cursor-grabbing'
+        }
+        draggable
         layout
         layoutId={card.id}
-        draggable={true}
         // @ts-ignore
         onDragStart={(e: React.DragEvent<HTMLDivElement>) =>
           handleDragStart(e, card)
-        }
-        className={
-          'cursor-grab rounded border bg-secondary p-3 active:cursor-grabbing'
         }
       >
         <p className={'text-sm'}>{card.title}</p>
@@ -246,9 +246,9 @@ const DropIndicator = ({
 }) => {
   return (
     <div
+      className={'my-0.5 h-0.5 w-full cursor-default bg-violet-400 opacity-0'}
       data-before={beforeId || '-1'}
       data-column={column}
-      className={'my-0.5 h-0.5 w-full cursor-default bg-violet-400 opacity-0'}
     />
   );
 };
@@ -278,15 +278,15 @@ const BurnBarrel = ({
 
   return (
     <div
-      onDrop={handleDragEnd}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
       className={cn(
         'mt-10 grid size-56 shrink-0 place-content-center rounded border text-3xl',
         active
           ? 'border-red-800 bg-red-800/20 text-red-500'
           : 'border-border bg-secondary/60',
       )}
+      onDragLeave={handleDragLeave}
+      onDragOver={handleDragOver}
+      onDrop={handleDragEnd}
     >
       {active ? (
         <Flame className={'pointer-events-none animate-bounce'} />
@@ -326,31 +326,32 @@ const AddCard = ({
   };
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {adding ? (
         <motion.form layout onSubmit={handleSubmit}>
           <textarea
-            onChange={(e) => setText(e.target.value)}
-            autoFocus={true}
-            placeholder={'Add new task...'}
+            autoFocus
             className={
               'w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm placeholder-violet-300 focus:outline-0'
             }
+            onChange={(e) => setText(e.target.value)}
+            placeholder={'Add new task...'}
           />
           <div className={'mt-1.5 flex items-center justify-end gap-1.5'}>
             <button
-              onClick={handleClose}
               className={
                 'px-3 py-1.5 text-xs text-foreground/60 hover:text-foreground'
               }
+              onClick={handleClose}
             >
               Close
             </button>
             <button
-              type={'submit'}
               className={
                 'flex items-center gap-1.5 rounded bg-primary px-3 py-1.5 text-xs text-primary-foreground hover:bg-primary/90'
               }
+              type={'submit'}
             >
               <span>Add</span>
               <Plus size={'1em'} />
@@ -359,11 +360,11 @@ const AddCard = ({
         </motion.form>
       ) : (
         <motion.button
-          layout
-          onClick={() => setAdding(true)}
           className={
             'flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-foreground/60 hover:text-foreground'
           }
+          layout
+          onClick={() => setAdding(true)}
         >
           <span>Add card</span>
           <Plus size={'1em'} />

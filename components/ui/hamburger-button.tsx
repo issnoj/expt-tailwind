@@ -13,16 +13,16 @@ const Line = ({
   animate: VariantLabels;
 }) => (
   <motion.line
+    animate={animate}
+    fill="transparent"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeWidth={3}
+    variants={variants}
     x1={0}
     x2={width}
     y1={y}
     y2={y}
-    strokeWidth={3}
-    fill="transparent"
-    stroke="currentColor"
-    strokeLinecap="round"
-    variants={variants}
-    animate={animate}
   />
 );
 
@@ -46,21 +46,19 @@ export const HamburgerButton = ({
 
   return (
     <button
-      onClick={onClick}
       className={cn(
         'grid size-[40px] place-content-center text-primary',
         className,
       )}
+      onClick={onClick}
     >
       <svg
-        viewBox={`0 0 ${width} ${height}`}
-        width={width}
         height={height}
         overflow={'visible'}
+        viewBox={`0 0 ${width} ${height}`}
+        width={width}
       >
         <Line
-          width={width}
-          y={0}
           animate={variant}
           variants={{
             closed: {
@@ -72,10 +70,10 @@ export const HamburgerButton = ({
               translateY: gap,
             },
           }}
+          width={width}
+          y={0}
         />
         <Line
-          width={width}
-          y={gap}
           animate={variant}
           variants={{
             closed: {
@@ -85,10 +83,10 @@ export const HamburgerButton = ({
               opacity: 0,
             },
           }}
+          width={width}
+          y={gap}
         />
         <Line
-          width={width}
-          y={gap * 2}
           animate={variant}
           variants={{
             closed: {
@@ -100,6 +98,8 @@ export const HamburgerButton = ({
               translateY: -gap,
             },
           }}
+          width={width}
+          y={gap * 2}
         />
       </svg>
     </button>

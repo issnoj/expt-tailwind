@@ -37,13 +37,13 @@ export const CodeBlock = ({ lang, code, data }: Props) => {
   return (
     <SyntaxHighlighter
       PreTag="div"
-      language={lang}
-      style={style}
       customStyle={customStyle}
-      showLineNumbers={true}
-      wrapLines={true}
-      lineProps={lineProps}
+      language={lang}
       lineNumberStyle={lineNumberStyle}
+      lineProps={lineProps}
+      showLineNumbers
+      style={style}
+      wrapLines
     >
       {String(code).replace(/\n$/, '')}
     </SyntaxHighlighter>

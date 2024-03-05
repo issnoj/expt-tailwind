@@ -1,5 +1,7 @@
 import { KanbanPage } from '@/components/kanban/kanban-page';
 
-export default function Page() {
+const Page = () => {
   return <KanbanPage />;
-}
+};
+
+export default Page;

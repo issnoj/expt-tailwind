@@ -31,16 +31,16 @@ export const StaggerMenu = () => {
       delay: stagger(0.05, { from: open ? 'first' : 'last' }),
       duration: 0.2,
     });
-  }, [open]);
+  }, [animate, open]);
 
   return (
     <div className={'h-[250px] w-[200px] overflow-hidden border'}>
       <div className={'h-full bg-secondary p-2'}>
         <div>
-          <Button size={'icon'} onClick={handleClick}>
+          <Button onClick={handleClick} size={'icon'}>
             <Menu />
           </Button>
-          <nav ref={scope} className={'relative'}>
+          <nav className={'relative'} ref={scope}>
             <ul
               className={
                 'absolute top-2 w-full overflow-hidden rounded bg-background p-2 shadow'

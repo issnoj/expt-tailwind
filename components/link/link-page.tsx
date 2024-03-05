@@ -8,7 +8,6 @@ export const LinkPage = () => {
   return (
     <Content title={'リンク'}>
       <Sample
-        meta={'5,12'}
         code={`
 <a
   href={'#'}
@@ -26,13 +25,14 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={'5,12'}
       >
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:w-full',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -44,7 +44,6 @@ export const LinkPage = () => {
         </a>
       </Sample>
       <Sample
-        meta={'5,12'}
         code={`
 <a
   href={'#'}
@@ -62,14 +61,15 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={'5,12'}
       >
         {' '}
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:w-full',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -81,7 +81,6 @@ export const LinkPage = () => {
         </a>
       </Sample>
       <Sample
-        meta={`5,12`}
         code={`
 <a
   href={'#'}
@@ -99,13 +98,14 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={`5,12`}
       >
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:origin-left [&:hover>span]:scale-x-100',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -132,19 +132,18 @@ export const LinkPage = () => {
 `}
       >
         <a
-          href={'#'}
           className={cn(
             'px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             'shadow-[0_0_0_4px_transparent] outline outline-4 outline-foreground/60',
             'hover:shadow-[0_0_0_4px_theme(colors.foreground)] hover:outline-offset-[10px] hover:outline-transparent',
             'transform-gpu transition-all duration-500 ease-[cubic-bezier(.25,.5,.5,.7)]',
           )}
+          href={'#'}
         >
           LINK
         </a>
       </Sample>
       <Sample
-        meta={'5,12'}
         code={`
 <a
   href={'#'}
@@ -162,13 +161,14 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={'5,12'}
       >
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:scale-x-100',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -182,11 +182,11 @@ export const LinkPage = () => {
       </Sample>
       <Sample desc={'transform-origin を right に'}>
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:scale-x-100',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -200,11 +200,11 @@ export const LinkPage = () => {
       </Sample>
       <Sample desc={'transform-origin を center に'}>
         <a
-          href={'#'}
           className={cn(
             'relative px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             '[&:hover>span]:scale-x-100',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -217,7 +217,6 @@ export const LinkPage = () => {
         </a>
       </Sample>
       <Sample
-        meta={'5,12'}
         code={`
 <a
   href={'#'}
@@ -235,13 +234,14 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={'5,12'}
       >
         <a
-          href={'#'}
           className={cn(
             'relative inline-block px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             'overflow-hidden [&:hover>span]:translate-x-[-10%]',
           )}
+          href={'#'}
         >
           LINK
           <span
@@ -253,7 +253,6 @@ export const LinkPage = () => {
         </a>
       </Sample>
       <Sample
-        meta={'5,13,14'}
         code={`
 <a
   href={'#'}
@@ -273,13 +272,14 @@ export const LinkPage = () => {
   />
 </a>
 `}
+        meta={'5,13,14'}
       >
         <a
-          href={'#'}
           className={cn(
             'relative inline-block px-8 py-2 font-bold text-foreground/60 hover:text-foreground',
             'overflow-hidden [&:hover>span]:scale-110',
           )}
+          href={'#'}
         >
           LINK
           <span

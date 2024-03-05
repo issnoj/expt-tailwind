@@ -18,10 +18,10 @@ export const EnterText = () => {
       <div className={'mt-4 h-[50px] w-[200px]'}>
         {text.split('').map((str, i) => (
           <motion.span
-            className={'inline-block'}
-            key={i}
-            initial={{ opacity: 0, y: '100%' }}
             animate={{ opacity: 1, y: 0 }}
+            className={'inline-block'}
+            initial={{ opacity: 0, y: '100%' }}
+            key={i}
             transition={{
               duration: 0.1,
               delay: i / 10,

@@ -16,27 +16,6 @@ export const MotionPage = () => {
   return (
     <Content title={'モーション'}>
       <Sample
-        desc={
-          <div>
-            Framer Motion の{' '}
-            <Link
-              href="https://www.framer.com/motion/animate-presence/"
-              target="_blank"
-            >
-              AnimatePresence
-            </Link>{' '}
-            を使用
-            <br />
-            Exit animations の{' '}
-            <Link
-              href="https://codesandbox.io/p/sandbox/framer-motion-image-gallery-pqvx3?file=%2Fsrc%2FExample.tsx&from-embed="
-              target="_blank"
-            >
-              サンプル
-            </Link>{' '}
-            を参考に作成
-          </div>
-        }
         code={`
 'use client';
 
@@ -103,6 +82,27 @@ export const HeartButton = () => {
 };
 
 `}
+        desc={
+          <div>
+            Framer Motion の{' '}
+            <Link
+              href="https://www.framer.com/motion/animate-presence/"
+              target="_blank"
+            >
+              AnimatePresence
+            </Link>{' '}
+            を使用
+            <br />
+            Exit animations の{' '}
+            <Link
+              href="https://codesandbox.io/p/sandbox/framer-motion-image-gallery-pqvx3?file=%2Fsrc%2FExample.tsx&from-embed="
+              target="_blank"
+            >
+              サンプル
+            </Link>{' '}
+            を参考に作成
+          </div>
+        }
       >
         <HeartButton />
       </Sample>
@@ -253,7 +253,6 @@ export const HamburgerButton = ({
         <HamburgerMenu />
       </Sample>
       <Sample
-        desc={<>同じ layoutId を使うことで、別要素からアニメーション</>}
         code={`
 <ul className={'border-b-1 flex w-full border-b'}>
   {tabs.map((item) => (
@@ -276,6 +275,7 @@ export const HamburgerButton = ({
   ))}
 </ul>
 `}
+        desc={<>同じ layoutId を使うことで、別要素からアニメーション</>}
       >
         <TabSample />
       </Sample>

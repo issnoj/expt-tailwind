@@ -1,6 +1,19 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:storybook/recommended"
-  ]
+  "extends": ["next/core-web-vitals", "plugin:storybook/recommended"],
+  "rules": {
+    "react/destructuring-assignment": "error",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/hook-use-state": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/jsx-sort-props": "error",
+    "react/self-closing-comp": "error",
+    "react/no-danger": "error"
+  }
 }

@@ -1,5 +1,7 @@
 import { LinkPage } from '@/components/link/link-page';
 
-export default function Page() {
+const Page = () => {
   return <LinkPage />;
-}
+};
+
+export default Page;

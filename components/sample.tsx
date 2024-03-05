@@ -31,9 +31,9 @@ export const Sample = ({ code, meta, desc, children }: Props) => {
             )}
           >
             <Switch
+              aria-label={'コードを表示する'}
               checked={showCode}
               onCheckedChange={handleCheckedChange}
-              aria-label={'コードを表示する'}
             />
             コードを表示する
           </Label>

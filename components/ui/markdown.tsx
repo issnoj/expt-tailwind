@@ -14,9 +14,9 @@ export const Markdown = ({ markdown }: Props) => {
           const match = /language-(\w+)/.exec(className || '');
           return match ? (
             <CodeBlock
-              lang={match[1]}
               code={String(children).replace(/\n$/, '')}
               data={node?.data}
+              lang={match[1]}
             />
           ) : (
             <code {...rest} className={className}>
