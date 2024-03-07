@@ -15,17 +15,9 @@ export const StaggerMenu = () => {
 
   useEffect(() => {
     animate('ul', {
-      // display: open ? 'block' : 'none',
       opacity: open ? 1 : 0,
       y: open ? 0 : -10,
     });
-    animate(
-      'ul',
-      {
-        display: open ? 'block' : 'none',
-      },
-      { delay: open ? 0 : 1 },
-    );
     animate('li', open ? { opacity: 1, x: 0 } : { opacity: 0, x: '100%' }, {
       ease: 'easeInOut',
       delay: stagger(0.05, { from: open ? 'first' : 'last' }),
@@ -45,6 +37,7 @@ export const StaggerMenu = () => {
               className={
                 'absolute top-2 w-full overflow-hidden rounded bg-background p-2 shadow'
               }
+              style={{ opacity: 0 }}
             >
               <li>リスト1</li>
               <li>リスト2</li>
