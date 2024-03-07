@@ -12,7 +12,7 @@ export const TabSample = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <div className="flex h-[100px] w-[300px] flex-col rounded border">
+    <div className="flex h-[100px] w-[300px] flex-col rounded border bg-background">
       <nav className={'h-[40px]'}>
         <ul className={'border-b-1 flex w-full border-b'}>
           {tabs.map((item) => (
@@ -49,23 +49,5 @@ export const TabSample = () => {
         </AnimatePresence>
       </main>
     </div>
-  );
-};
-
-const Test = ({ text, checked }: { text?: string; checked: boolean }) => {
-  const [count, setCount] = useState(0);
-  return <div>{text}</div>;
-};
-
-const Test2 = () => {
-  const value = true;
-  return (
-    <>
-      <Test checked={value} text="aaaaa" />
-      <Test checked={false} />
-      <Test checked />
-      {'test'}
-      <div />
-    </>
   );
 };

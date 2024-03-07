@@ -32,7 +32,7 @@ const Board = () => {
   }, []);
 
   return (
-    <div className={'flex h-full gap-3 overflow-scroll'}>
+    <div className={'flex h-full gap-3 overflow-auto bg-background p-4'}>
       <Column
         cards={cards}
         column={'backlog'}
@@ -186,21 +186,18 @@ const Column = ({
         </span>
       </div>
       <div
-        className={cn(
-          `size-full transition-colors`,
-          active && 'bg-secondary/60',
-        )}
+        className={cn(`w-full transition-colors`, active && 'bg-secondary/60')}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDragEnd}
       >
+        <AddCard column={column} setCards={setCards} />
         {filteredCards.map((card) => {
           return (
             <Card card={card} handleDragStart={handleDragStart} key={card.id} />
           );
         })}
         <DropIndicator beforeId={'-1'} column={column} />
-        <AddCard column={column} setCards={setCards} />
       </div>
     </div>
   );
@@ -315,7 +312,7 @@ const AddCard = ({
       title: text.trim(),
       column,
     };
-    setCards((pv) => [...pv, newCard]);
+    setCards((pv) => [newCard, ...pv]);
     setText('');
     setAdding(false);
   };
