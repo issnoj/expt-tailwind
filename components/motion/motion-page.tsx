@@ -5,12 +5,10 @@ import { Content } from '@/components/ui/content';
 import { HeartButton } from '@/components/motion/heart-button';
 import { Sample } from '@/components/sample';
 import { Link } from '@/components/ui/link';
-import { EnterText } from '@/components/motion/enter-text';
 import { StaggerMenu } from '@/components/motion/stagger-menu';
 import { HamburgerMenu } from '@/components/motion/hamburger-menu';
-import { motion, VariantLabels, Variants } from 'framer-motion';
+import { VariantLabels, Variants } from 'framer-motion';
 import { TabSample } from '@/components/motion/tab-sample';
-import { cn } from '@/lib/utils';
 
 export const MotionPage = () => {
   return (
@@ -105,26 +103,6 @@ export const HeartButton = () => {
         }
       >
         <HeartButton />
-      </Sample>
-      <Sample
-        code={`
-{text.split('').map((str, i) => (
-  <motion.span
-    className={'inline-block'}
-    key={i}
-    initial={{ opacity: 0, y: '100%' }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{
-      duration: 0.1,
-      delay: i / 10,
-    }}
-  >
-    {str}
-  </motion.span>
-))}
-`}
-      >
-        <EnterText />
       </Sample>
       <Sample
         desc={
