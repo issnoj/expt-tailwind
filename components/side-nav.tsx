@@ -16,6 +16,7 @@ export const SideNav = () => {
         <Link href={'/kanban'}>カンバン</Link>
         <Link href={'/motion'}>モーション</Link>
         <Link href={'/typewriter'}>テキスト出現</Link>
+        <Link href={'/table'}>テーブル</Link>
       </div>
     </nav>
   );
