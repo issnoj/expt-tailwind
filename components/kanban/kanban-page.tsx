@@ -1,6 +1,7 @@
 import { Kanban } from '@/components/kanban/kanban';
 import { Link } from '@/components/ui/link';
 import { Content } from '@/components/ui/content';
+import { Board } from '@/components/ui/board';
 
 export const KanbanPage = () => {
   return (
@@ -16,7 +17,9 @@ export const KanbanPage = () => {
           </Link>
         </cite>
       </p>
-      <Kanban />
+      <Board>
+        <Kanban />
+      </Board>
     </Content>
   );
 };

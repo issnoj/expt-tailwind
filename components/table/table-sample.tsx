@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/table-simple-grid';
 import { SwitchMobile } from '@/components/ui/switch-mobile';
 import { TableSimpleGridScroll } from '@/components/ui/table-simple-grid-scroll';
+import { Board } from '../ui/board';
 
 export const TableSample = () => {
   const data: TableSimpleProps['data'] = [
@@ -48,18 +49,15 @@ export const TableSample = () => {
 
   return (
     <div className={'flex max-w-lg flex-col gap-8'}>
-      <div
+      <Board
         className={'w-full rounded border bg-background p-8 shadow'}
         id={'table-simple'}
       >
         <h6 className={'mb-8 font-bold'}>レスポンシブのテーブル形式リスト</h6>
         <SwitchMobile className={'mb-4'} id={'table-simple'} />
         <TableSimple className={'text-xs'} data={data} />
-      </div>
-      <div
-        className={'w-full rounded border bg-background p-8 shadow'}
-        id={'table-simple-grid'}
-      >
+      </Board>
+      <Board id={'table-simple-grid'}>
         <h6 className={'mb-1 font-bold'}>レスポンシブのテーブル</h6>
         <small className={'mb-8 inline-block text-muted-foreground'}>
           1列目がモバイル表示時に見出しになる
@@ -72,15 +70,15 @@ export const TableSample = () => {
           columns={[...columns].splice(0, 3)}
           data={dataGrid}
         />
-      </div>
-      <div className={'w-full rounded border bg-background p-8 shadow'}>
+      </Board>
+      <Board>
         <h6 className={'mb-8 font-bold'}>非レスポンシブのテーブル</h6>
         <TableSimpleGridScroll
           className={'text-xs'}
           columns={columns}
           data={dataGrid}
         />
-      </div>
+      </Board>
     </div>
   );
 };

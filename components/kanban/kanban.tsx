@@ -32,7 +32,7 @@ const Board = () => {
   }, []);
 
   return (
-    <div className={'flex h-full gap-3 overflow-auto bg-background p-4'}>
+    <div className={'flex h-full gap-3 overflow-auto p-4'}>
       <Column
         cards={cards}
         column={'backlog'}

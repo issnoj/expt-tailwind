@@ -17,6 +17,7 @@ export const SideNav = () => {
         <Link href={'/motion'}>モーション</Link>
         <Link href={'/typewriter'}>テキスト出現</Link>
         <Link href={'/table'}>テーブル</Link>
+        <Link href={'/alert'}>アラート</Link>
       </div>
     </nav>
   );
