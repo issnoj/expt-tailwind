@@ -19,6 +19,7 @@ export const SideNav = () => {
         <Link href={'/table'}>テーブル</Link>
         <Link href={'/data-table'}>データテーブル</Link>
         <Link href={'/alert'}>アラート</Link>
+        <Link href={'/text-field'}>Text Field</Link>
       </div>
     </nav>
   );
