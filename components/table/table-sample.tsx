@@ -52,16 +52,16 @@ export const TableSample = () => {
       <Board
         className={'w-full rounded border bg-background p-8 shadow'}
         id={'table-simple'}
+        title={'レスポンシブのテーブル形式リスト'}
       >
-        <h6 className={'mb-8 font-bold'}>レスポンシブのテーブル形式リスト</h6>
         <SwitchMobile className={'mb-4'} id={'table-simple'} />
         <TableSimple className={'text-xs'} data={data} />
       </Board>
-      <Board id={'table-simple-grid'}>
-        <h6 className={'mb-1 font-bold'}>レスポンシブのテーブル</h6>
-        <small className={'mb-8 inline-block text-muted-foreground'}>
-          1列目がモバイル表示時に見出しになる
-        </small>
+      <Board
+        id={'table-simple-grid'}
+        remark={'1列目がモバイル表示時に見出しになる'}
+        title={'レスポンシブのテーブル'}
+      >
         <div>
           <SwitchMobile className={'mb-4'} id={'table-simple-grid'} />
         </div>
@@ -71,8 +71,7 @@ export const TableSample = () => {
           data={dataGrid}
         />
       </Board>
-      <Board>
-        <h6 className={'mb-8 font-bold'}>非レスポンシブのテーブル</h6>
+      <Board title={'非レスポンシブのテーブル'}>
         <TableSimpleGridScroll
           className={'text-xs'}
           columns={columns}
