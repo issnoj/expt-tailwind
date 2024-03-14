@@ -13,17 +13,23 @@ type InputEmailProps = {
 export const InputEmail = React.forwardRef<HTMLInputElement, InputEmailProps>(
   ({ disabled, className, ...props }: InputEmailProps, ref) => {
     return (
-      <label className={cn('relative block border', className)}>
-        <div
-          className={cn(
-            'absolute bottom-0 top-0 flex w-[3em] items-center justify-center rounded-full text-sm',
-            disabled ? 'cursor-default' : 'cursor-pointer ',
-          )}
-        >
+      <label
+        className={cn(
+          'inline-flex gap-4 border border-input px-4 font-mono text-sm',
+          'focus-within:ring-2 focus-within:ring-ring',
+          disabled
+            ? 'cursor-not-allowed text-muted-foreground'
+            : 'cursor-pointer ',
+          className,
+        )}
+      >
+        <div className={cn('flex items-center')}>
           <Mail size={'1em'} />
         </div>
         <Input
-          className={'rounded-none border-0 pl-[3em]'}
+          className={
+            'disabled:opacity-1 rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0'
+          }
           disabled={disabled}
           id={'email'}
           placeholder={'Email'}
