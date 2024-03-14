@@ -11,6 +11,8 @@ import {
   getFilteredRowModel,
   ColumnFiltersState,
   VisibilityState,
+  InitialTableState,
+  Table as ReactTable,
 } from '@tanstack/react-table';
 
 import {
@@ -22,44 +24,38 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import { DataTableViewOptions } from '@/components/ui/data-table/data-table-view-options';
+import { DataTablePagination } from '@/components/ui/data-table/data-table-pagination';
 
 type Props<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   className?: string;
+  initialState?: InitialTableState;
+  visibilityState?: VisibilityState;
+  filterComponent?: (table: ReactTable<TData>) => React.ReactNode;
 };
 
 export const DataTable = <TData, TValue>({
   columns,
   data,
   className,
+  initialState,
+  visibilityState = {},
+  filterComponent,
 }: Props<TData, TValue>) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({
-    spawn_chance: false,
-  });
+  const [columnVisibility, setColumnVisibility] =
+    useState<VisibilityState>(visibilityState);
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
-    data,
     columns,
+    data,
+    initialState,
     getCoreRowModel: getCoreRowModel(),
-    // ページネーション
-    initialState: {
-      pagination: {
-        pageIndex: 0,
-        pageSize: 5,
-      },
-    },
     getPaginationRowModel: getPaginationRowModel(),
     // ソート
     onSortingChange: setSorting,
@@ -69,52 +65,26 @@ export const DataTable = <TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     // 表示
     onColumnVisibilityChange: setColumnVisibility,
+    // 選択
+    onRowSelectionChange: setRowSelection,
     state: {
       sorting,
       columnFilters,
       columnVisibility,
+      rowSelection,
     },
   });
 
   return (
     <div className={cn(className)}>
-      <div className="flex items-center gap-4 py-4">
-        <Input
-          className="max-w-xs"
-          onChange={(event) =>
-            table.getColumn('name')?.setFilterValue(event.target.value)
-          }
-          placeholder="名前で検索"
-          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
-        />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button className="ml-auto" variant="outline">
-              Columns
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    checked={column.getIsVisible()}
-                    className="capitalize"
-                    key={column.id}
-                    onCheckedChange={(value) => column.toggleVisibility(value)}
-                  >
-                    {column.columnDef.meta?.name}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+      {filterComponent && filterComponent(table)}
+      <div className="flex flex-col gap-2 px-2">
+        <DataTableViewOptions table={table} />
+        <DataTablePagination table={table} />
       </div>
-      <div className={'rounded-md border'}>
+      <div className={'mt-2 rounded-md border'}>
         <Table>
-          <TableHeader>
+          <TableHeader className={'bg-sky-50 dark:bg-sky-950'}>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -161,24 +131,6 @@ export const DataTable = <TData, TValue>({
             )}
           </TableBody>
         </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          disabled={!table.getCanPreviousPage()}
-          onClick={() => table.previousPage()}
-          size="sm"
-          variant="outline"
-        >
-          Previous
-        </Button>
-        <Button
-          disabled={!table.getCanNextPage()}
-          onClick={() => table.nextPage()}
-          size="sm"
-          variant="outline"
-        >
-          Next
-        </Button>
       </div>
     </div>
   );

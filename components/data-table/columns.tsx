@@ -9,6 +9,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Badge } from '@/components/ui/badge';
+import { toFloat } from '@/lib/to-float';
 
 const sortIcons = {
   asc: ArrowUp,
@@ -73,18 +76,59 @@ const Header = <TData, TValue>({
 
 export const columns: ColumnDef<Pokemon, NameColumnMeta<{ name: string }>>[] = [
   {
+    id: 'select',
+    header: ({ table }) => (
+      <Checkbox
+        aria-label="Select all"
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && 'indeterminate')
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        aria-label="Select row"
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+  {
     accessorKey: 'num',
     enableHiding: false,
-    header: ({ column }) => <Header column={column} title={'名前'} />,
+    header: ({ column }) => <Header column={column} title={'番号'} />,
     cell: ({ row }) => {
       const pokemon = row.original;
       return <div className={'text-center'}>{pokemon.num}</div>;
     },
   },
   {
+    accessorKey: 'img',
+    meta: {
+      name: '画像',
+    },
+    header: ({ column }) => <Header column={column} title={'画像'} />,
+    cell: ({ row }) => {
+      return (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          alt={row.original.name}
+          className={'size-[5em]'}
+          src={row.original.img}
+        />
+      );
+    },
+  },
+  {
     accessorKey: 'name',
-    enableHiding: false,
-    header: ({ column }) => <Header column={column} title={'番号'} />,
+    meta: {
+      name: '名前',
+    },
+    header: ({ column }) => <Header column={column} title={'名前'} />,
     cell: ({ row }) => (
       <div className={'font-bold'}>{row.getValue('name')}</div>
     ),
@@ -95,6 +139,12 @@ export const columns: ColumnDef<Pokemon, NameColumnMeta<{ name: string }>>[] = [
       name: '身長',
     },
     header: ({ column }) => <Header column={column} title={'身長'} />,
+    filterFn: (row, _, filterValue: { from?: string; to?: string }) => {
+      const from = filterValue.from ? toFloat(filterValue.from) : -Infinity;
+      const to = filterValue.to ? toFloat(filterValue.to) : Infinity;
+      const height = parseFloat(row?.original?.height);
+      return (isNaN(from) || from <= height) && (isNaN(to) || height <= to);
+    },
   },
   {
     accessorKey: 'weight',
@@ -111,11 +161,41 @@ export const columns: ColumnDef<Pokemon, NameColumnMeta<{ name: string }>>[] = [
     header: ({ column }) => <Header column={column} title={'出現率'} />,
   },
   {
+    accessorKey: 'weaknesses',
+    meta: {
+      name: '弱点',
+    },
+    header: '弱点',
+    cell: ({ row }) => {
+      const weaknesses = row.original.weaknesses;
+      return (
+        <div className={'flex flex-wrap gap-0.5'}>
+          {weaknesses.map((weakness) => {
+            return (
+              <Badge key={weakness} variant={'destructive'}>
+                {weakness}
+              </Badge>
+            );
+          })}
+        </div>
+      );
+    },
+    filterFn: (row, _, filterValue) => {
+      return filterValue
+        .replace(/\s+/g, ' ')
+        .trim()
+        .split(' ')
+        .every((filterValue: string) => {
+          return row.original.weaknesses.some((v) =>
+            new RegExp(filterValue, 'i').test(v),
+          );
+        });
+    },
+  },
+  {
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => {
-      const pokemon = row.original;
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -127,7 +207,7 @@ export const columns: ColumnDef<Pokemon, NameColumnMeta<{ name: string }>>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(pokemon.name)}
+              onClick={() => navigator.clipboard.writeText(row.original.name)}
             >
               Copy name
             </DropdownMenuItem>
