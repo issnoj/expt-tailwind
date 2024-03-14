@@ -24,7 +24,7 @@ export const InputPassword = React.forwardRef<
         'focus-within:ring-2 focus-within:ring-ring',
         disabled
           ? 'cursor-not-allowed text-muted-foreground'
-          : 'cursor-pointer ',
+          : 'cursor-pointer',
         className,
       )}
     >
@@ -36,7 +36,6 @@ export const InputPassword = React.forwardRef<
           'disabled:opacity-1 rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0'
         }
         disabled={disabled}
-        id={'email'}
         placeholder={'Password'}
         ref={ref}
         type={showPassword ? 'text' : 'password'}

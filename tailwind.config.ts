@@ -67,10 +67,17 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        disappear: {
+          '0%': { opacity: '1' },
+          '50%': { opacity: '1' },
+          '51%': { opacity: '0' },
+          '100%': { opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        caret: 'disappear 1s infinite',
       },
     },
   },

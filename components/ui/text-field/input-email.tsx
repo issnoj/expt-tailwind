@@ -19,7 +19,7 @@ export const InputEmail = React.forwardRef<HTMLInputElement, InputEmailProps>(
           'focus-within:ring-2 focus-within:ring-ring',
           disabled
             ? 'cursor-not-allowed text-muted-foreground'
-            : 'cursor-pointer ',
+            : 'cursor-pointer',
           className,
         )}
       >
@@ -31,7 +31,6 @@ export const InputEmail = React.forwardRef<HTMLInputElement, InputEmailProps>(
             'disabled:opacity-1 rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0'
           }
           disabled={disabled}
-          id={'email'}
           placeholder={'Email'}
           ref={ref}
           type="email"
