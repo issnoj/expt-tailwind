@@ -2,7 +2,6 @@
 
 import { cn } from '@/lib/utils';
 import { Key } from 'lucide-react';
-import { Input } from '@/components/ui/input';
 import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -77,7 +76,7 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
                 {active && values.length < 6 && (
                   <div
                     className={
-                      'animate-caret absolute h-[1em] border-0 border-l-[1px] border-black font-thin'
+                      'absolute h-[1em] animate-caret border-0 border-l-[1px] border-black font-thin'
                     }
                   />
                 )}
@@ -100,9 +99,9 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
             <Expire expireAt={expireAt} onExpired={handleExpired} />
           </div>
         )}
-        <Input
+        <input
           className={cn(
-            'absolute inset-0 border-none bg-transparent text-transparent caret-transparent opacity-0 outline-none focus-visible:ring-0 focus-visible:ring-offset-0',
+            'absolute inset-0 opacity-0',
             'left-[calc(1em+32px)] w-[calc(12em+48px)]',
           )}
           disabled={disabled || expired}
