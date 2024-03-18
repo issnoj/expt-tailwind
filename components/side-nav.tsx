@@ -20,6 +20,7 @@ export const SideNav = () => {
         <Link href={'/data-table'}>データテーブル</Link>
         <Link href={'/alert'}>アラート</Link>
         <Link href={'/text-field'}>Text Field</Link>
+        <Link href={'/chat'}>チャット</Link>
       </div>
     </nav>
   );
