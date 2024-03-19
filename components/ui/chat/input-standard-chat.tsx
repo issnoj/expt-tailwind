@@ -23,7 +23,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Control, Controller, UseFormTrigger } from 'react-hook-form';
-import { ChatSampleFormData } from '@/components/chat/chat-sample';
+import { StandardChatSampleFormData } from '@/components/chat/standard-chat-sample';
 import { cn } from '@/lib/utils';
 
 export type SelectedFile = {
@@ -42,21 +42,21 @@ type Emoji = {
   aliases: string[];
 };
 
-export type InputChatProps = {
+export type InputStandardChatProps = {
   getMessage: () => string;
   setMessage: (value: string) => void;
   onSubmit: () => void;
   disabledInput: boolean;
   disabledButton: boolean;
-  control: Control<ChatSampleFormData>;
-  trigger: UseFormTrigger<ChatSampleFormData>;
+  control: Control<StandardChatSampleFormData>;
+  trigger: UseFormTrigger<StandardChatSampleFormData>;
   onChangeFile: (
     file: File | undefined,
     callback?: (success: boolean) => void,
   ) => void;
 };
 
-export const InputChat = ({
+export const InputStandardChat = ({
   getMessage,
   setMessage,
   onSubmit,
@@ -65,7 +65,7 @@ export const InputChat = ({
   control,
   trigger,
   onChangeFile,
-}: InputChatProps) => {
+}: InputStandardChatProps) => {
   const { theme } = useTheme();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [isOpenEmojiPicker, setIsOpenEmojiPicker] = useState(false);
@@ -152,7 +152,9 @@ export const InputChat = ({
               <TextareaAutosize
                 autoComplete="off"
                 autoCorrect="off"
-                className="max-h-[calc(50vh-56px)] w-full resize-none border-0 bg-transparent p-4 focus:outline-0 focus-visible:outline-0"
+                className={cn(
+                  'max-h-[calc(50vh-56px)] w-full resize-none border-0 bg-transparent p-4 focus:outline-0 focus-visible:outline-0',
+                )}
                 disabled={disabledInput}
                 onKeyDown={handleKeyDown}
                 placeholder="Send a message"

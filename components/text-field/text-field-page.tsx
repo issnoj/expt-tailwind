@@ -4,6 +4,7 @@ import { InputEmailSample } from '@/components/text-field/input-email-sample';
 import { InputEmailFixedDomainSample } from '@/components/text-field/input-email-fixed-domain-sample';
 import { InputPasswordSample } from '@/components/text-field/input-password-sample';
 import { InputOtpSample } from '@/components/text-field/input-otp-sample';
+import { LinedMultilineSample } from '@/components/text-field/lined-multiline-sample';
 
 export const TextFieldPage = () => {
   return (
@@ -21,6 +22,9 @@ export const TextFieldPage = () => {
       </Board>
       <Board className={'max-w-max'} title={'ワンタイムパスワード'}>
         <InputOtpSample expireAt={new Date(Date.now() + 1000 * 10)} />
+      </Board>
+      <Board className={'max-w-max'} title={'罫線付きテキストエリア'}>
+        <LinedMultilineSample />
       </Board>
     </Content>
   );

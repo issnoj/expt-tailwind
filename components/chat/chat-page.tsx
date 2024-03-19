@@ -1,11 +1,11 @@
 import { Content } from '@/components/ui/content';
 import { Board } from '@/components/ui/board';
 import { SimpleChatSample } from '@/components/chat/simple-chat-sample';
-import { ChatSample } from '@/components/chat/chat-sample';
+import { StandardChatSample } from '@/components/chat/standard-chat-sample';
 
 export const ChatPage = () => {
   return (
-    <Content title={'Textarea'}>
+    <Content title={'チャット'}>
       <Board
         remark={
           <div>
@@ -17,9 +17,9 @@ export const ChatPage = () => {
             </ul>
           </div>
         }
-        title={'チャット'}
+        title={'標準チャット'}
       >
-        <ChatSample />
+        <StandardChatSample />
       </Board>
       <Board
         remark={

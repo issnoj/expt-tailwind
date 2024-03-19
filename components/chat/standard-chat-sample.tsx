@@ -1,7 +1,7 @@
 'use client';
 
 import { useChat } from './use-chat';
-import { InputChat } from '@/components/ui/chat/input-chat';
+import { InputStandardChat } from '@/components/ui/chat/input-standard-chat';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -42,11 +42,11 @@ const FormSchema = z.object({
     ),
 });
 
-export type ChatSampleFormData = z.infer<typeof FormSchema>;
+export type StandardChatSampleFormData = z.infer<typeof FormSchema>;
 
-export const ChatSample = () => {
+export const StandardChatSample = () => {
   const { append, loading, setLoading } = useChat();
-  const form = useForm<ChatSampleFormData>({
+  const form = useForm<StandardChatSampleFormData>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       message: '',
@@ -89,7 +89,7 @@ export const ChatSample = () => {
     <div>
       <Form {...form}>
         <form noValidate onSubmit={form.handleSubmit(onSubmit)}>
-          <InputChat
+          <InputStandardChat
             control={form.control}
             disabledButton={loading || message === ''}
             disabledInput={loading}
