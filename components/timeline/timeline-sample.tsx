@@ -4,7 +4,7 @@ import { timelineSampleData } from '@/components/timeline/columns';
 export const TimelineSample = () => {
   return (
     <div>
-      <ol className="relative max-w-2xl cursor-default border-s border-foreground/60">
+      <ol className="relative cursor-default border-s border-foreground/60">
         {timelineSampleData.map((v) => (
           <li
             className={cn(

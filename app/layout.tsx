@@ -25,7 +25,7 @@ const Layout = ({
           disableTransitionOnChange
           enableSystem
         >
-          <div className={'grid grid-cols-[300px,1fr]'}>
+          <div className={'grid w-full grid-cols-[300px,1fr]'}>
             <SideNav />
             <main>{children}</main>
           </div>

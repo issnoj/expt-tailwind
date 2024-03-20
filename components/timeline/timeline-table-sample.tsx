@@ -7,7 +7,7 @@ import {
 export const TimelineTableSample = () => {
   return (
     <div>
-      <table className="max-w-2xl cursor-default">
+      <table className="cursor-default">
         <thead className={'text-foreground/60'}>
           <tr>
             {timelineSampleColumns.map((column) => (

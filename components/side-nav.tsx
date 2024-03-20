@@ -22,6 +22,7 @@ export const SideNav = () => {
         <Link href={'/text-field'}>Text Field</Link>
         <Link href={'/chat'}>チャット</Link>
         <Link href={'/timeline'}>タイムライン</Link>
+        <Link href={'/carousel'}>カルーセル</Link>
       </div>
     </nav>
   );

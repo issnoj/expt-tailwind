@@ -9,10 +9,10 @@ import { TimelineTableSample } from '@/components/timeline/timeline-table-sample
 export const TimelinePage = () => {
   return (
     <Content title={'タイムライン'}>
-      <Board title={'リスト形式タイムライン'}>
+      <Board className={'max-w-2xl'} title={'リスト形式タイムライン'}>
         <TimelineSample />
       </Board>
-      <Board title={'テーブル形式タイムライン'}>
+      <Board className={'max-w-2xl'} title={'テーブル形式タイムライン'}>
         <TimelineTableSample />
       </Board>
     </Content>

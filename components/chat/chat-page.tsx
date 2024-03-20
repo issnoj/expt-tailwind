@@ -7,6 +7,7 @@ export const ChatPage = () => {
   return (
     <Content title={'チャット'}>
       <Board
+        className={'max-w-md'}
         remark={
           <div>
             <ul>
@@ -26,6 +27,7 @@ export const ChatPage = () => {
         <StandardChatSample />
       </Board>
       <Board
+        className={'max-w-md'}
         remark={
           <div>
             <ul>
