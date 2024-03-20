@@ -10,8 +10,12 @@ export const ChatPage = () => {
         remark={
           <div>
             <ul>
-              <li>・Enter で改行</li>
-              <li>・Ctrl + Enter で送信</li>
+              <li>
+                ・<kbd>Enter</kbd> で改行
+              </li>
+              <li>
+                ・<kbd>Ctrl</kbd> + <kbd>Enter</kbd> で送信
+              </li>
               <li>・絵文字</li>
               <li>・1つの画像ファイル添付</li>
             </ul>
@@ -25,8 +29,12 @@ export const ChatPage = () => {
         remark={
           <div>
             <ul>
-              <li>・Enter で送信</li>
-              <li>・Shift + Enter で改行</li>
+              <li>
+                ・<kbd>Enter</kbd> で送信
+              </li>
+              <li>
+                ・<kbd>Shift</kbd> + <kbd>Enter</kbd> で改行
+              </li>
             </ul>
           </div>
         }
