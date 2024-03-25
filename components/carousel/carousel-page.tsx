@@ -6,6 +6,7 @@ import { ImgGridCarouselSample } from '@/components/carousel/img-grid-carousel-s
 import { Sample } from '@/components/sample';
 import { ImgCarouselSample } from '@/components/carousel/img-carousel-sample';
 import { ImgTweenCarouselSample } from '@/components/carousel/img-tween-carousel-sample';
+import { PseudoCarousel } from '@/components/carousel/PseudoCarousel';
 
 export const CarouselPage = () => {
   return (
@@ -18,6 +19,9 @@ export const CarouselPage = () => {
       </Sample>
       <Sample>
         <ImgTweenCarouselSample />
+      </Sample>
+      <Sample>
+        <PseudoCarousel />
       </Sample>
     </Content>
   );

@@ -11,24 +11,22 @@ import { Button } from '@/components/ui/button';
 
 export const ImgTweenCarouselSample = () => {
   return (
-    <div>
-      <Board
-        remark={
-          <div>
-            前後の画像の透明度・スケールを距離に応じて変更
-            <br />
-            Embra Carousel を利用
-          </div>
-        }
-        title={'画像補間カルーセル'}
-      >
-        <div className={'px-10'}>
-          <div className={'max-w-sm'}>
-            <Content />
-          </div>
+    <Board
+      remark={
+        <div>
+          前後の画像の透明度・スケールを距離に応じて変更
+          <br />
+          Embra Carousel を利用
         </div>
-      </Board>
-    </div>
+      }
+      title={'画像補間カルーセル'}
+    >
+      <div className={'px-10'}>
+        <div className={'max-w-sm'}>
+          <Content />
+        </div>
+      </div>
+    </Board>
   );
 };
 
