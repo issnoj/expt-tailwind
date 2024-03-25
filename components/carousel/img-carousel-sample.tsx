@@ -8,10 +8,18 @@ import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { EmblaCarouselType } from 'embla-carousel';
 
-export const ImgSlideCarouselSample = () => {
+export const ImgCarouselSample = () => {
   return (
     <div>
-      <Board title={'画像スライドカルーセル'}>
+      <Board
+        remark={
+          <div>
+            プログレスバーと表示中のスライド番号、総スライド数の表示
+            <br />※ shadcn/ui Carousel の CarouselItem, useCarousel のみ利用
+          </div>
+        }
+        title={'画像カルーセル'}
+      >
         <div className={'px-10'}>
           <Carousel className={'max-w-sm'}>
             <Content />
@@ -52,7 +60,7 @@ const Content = () => {
     api.on('reInit', onScroll);
     api.on('scroll', onScroll);
     api.on('select', updateScrollSnapState);
-  }, [api, onScroll]);
+  }, [api, onScroll, updateScrollSnapState]);
 
   return (
     <div>

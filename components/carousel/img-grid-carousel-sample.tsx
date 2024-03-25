@@ -13,20 +13,21 @@ import { carouselSampleData } from '@/components/carousel/carousel-sample-data';
 
 export const ImgGridCarouselSample = () => {
   return (
-    <div>
-      <Board title={'画像タイル状カルーセル'}>
-        <div className={'px-10'}>
-          <Carousel
-            className={'w-[200px]'}
-            opts={{
-              loop: true,
-            }}
-          >
-            <ShadcnCarouselContent />
-          </Carousel>
-        </div>
-      </Board>
-    </div>
+    <Board
+      remark={<div>※ shadcn/ui Carousel をほぼそのまま利用</div>}
+      title={'画像タイル状カルーセル'}
+    >
+      <div className={'px-10'}>
+        <Carousel
+          className={'w-[200px]'}
+          opts={{
+            loop: true,
+          }}
+        >
+          <ShadcnCarouselContent />
+        </Carousel>
+      </div>
+    </Board>
   );
 };
 

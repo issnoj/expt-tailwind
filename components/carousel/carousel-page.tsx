@@ -4,7 +4,8 @@ import React from 'react';
 import { Content } from '@/components/ui/content';
 import { ImgGridCarouselSample } from '@/components/carousel/img-grid-carousel-sample';
 import { Sample } from '@/components/sample';
-import { ImgSlideCarouselSample } from '@/components/carousel/img-slide-carousel-sample';
+import { ImgCarouselSample } from '@/components/carousel/img-carousel-sample';
+import { ImgTweenCarouselSample } from '@/components/carousel/img-tween-carousel-sample';
 
 export const CarouselPage = () => {
   return (
@@ -13,7 +14,10 @@ export const CarouselPage = () => {
         <ImgGridCarouselSample />
       </Sample>
       <Sample>
-        <ImgSlideCarouselSample />
+        <ImgCarouselSample />
+      </Sample>
+      <Sample>
+        <ImgTweenCarouselSample />
       </Sample>
     </Content>
   );
