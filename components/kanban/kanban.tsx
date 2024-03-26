@@ -1,35 +1,20 @@
-'use client';
-
 import { SetStateAction, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { KANBAN_CARDS, KanbanCard } from '@/components/kanban/consts';
+import { KanbanCard } from '@/components/kanban/consts';
 import { Flame, Plus, Trash } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export const Kanban = () => {
-  return (
-    <div className={'h-[500px]'}>
-      <Board />
-    </div>
-  );
+type Props = {
+  initialCards: KanbanCard[];
+  onChangeCards: (cards: KanbanCard[]) => void;
 };
 
-const Board = () => {
-  const [cards, setCards] = useState<KanbanCard[]>([]);
-  const [loading, setLoading] = useState(true);
+export const Kanban = ({ initialCards, onChangeCards }: Props) => {
+  const [cards, setCards] = useState<KanbanCard[]>(initialCards);
 
   useEffect(() => {
-    if (loading) {
-      return;
-    }
-    localStorage.setItem('cards', JSON.stringify(cards));
-  }, [cards, loading]);
-
-  useEffect(() => {
-    const cards = localStorage.getItem('cards');
-    setCards(cards ? JSON.parse(cards) : KANBAN_CARDS);
-    setLoading(false);
-  }, []);
+    onChangeCards(cards);
+  }, [cards, onChangeCards]);
 
   return (
     <div className={'flex h-full gap-3 overflow-auto p-4'}>
@@ -37,25 +22,19 @@ const Board = () => {
         cards={cards}
         column={'backlog'}
         setCards={setCards}
-        title={'Backlog'}
-      />
-      <Column
-        cards={cards}
-        column={'todo'}
-        setCards={setCards}
-        title={'TODO'}
+        title={'未対応'}
       />
       <Column
         cards={cards}
         column={'doing'}
         setCards={setCards}
-        title={'In progress'}
+        title={'対応中'}
       />
       <Column
         cards={cards}
         column={'done'}
         setCards={setCards}
-        title={'Completed'}
+        title={'完了'}
       />
       <BurnBarrel setCards={setCards} />
     </div>
@@ -186,7 +165,10 @@ const Column = ({
         </span>
       </div>
       <div
-        className={cn(`w-full transition-colors`, active && 'bg-secondary/60')}
+        className={cn(
+          `size-full transition-colors`,
+          active && 'bg-secondary/60',
+        )}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
         onDrop={handleDragEnd}

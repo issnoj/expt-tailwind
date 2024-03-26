@@ -1,12 +1,22 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 type Props = {
   children: React.ReactNode;
+  className?: string;
   callback?: () => void;
+  collapse?: boolean;
+  text?: string;
 };
 
-export const ReRender = ({ children, callback }: Props) => {
+export const ReRender = ({
+  children,
+  className,
+  callback,
+  collapse = true,
+  text = '再表示',
+}: Props) => {
   const [show, setShow] = useState(true);
 
   const handleClick = () => {
@@ -16,9 +26,13 @@ export const ReRender = ({ children, callback }: Props) => {
   };
 
   return (
-    <div className={'space-y-4'}>
-      <Button onClick={handleClick}>再表示</Button>
-      {show ? children : <div className={'collapse'}>{children}</div>}
+    <div className={cn('space-y-4', className)}>
+      <Button onClick={handleClick}>{text}</Button>
+      {show ? (
+        children
+      ) : collapse ? (
+        <div className={'collapse'}>{children}</div>
+      ) : null}
     </div>
   );
 };

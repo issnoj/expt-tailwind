@@ -26,22 +26,6 @@ export const KANBAN_CARDS: KanbanCard[] = [
     id: '4',
     column: 'backlog',
   },
-  // todo
-  {
-    title: 'todo 1',
-    id: '5',
-    column: 'todo',
-  },
-  {
-    title: 'todo 2',
-    id: '6',
-    column: 'todo',
-  },
-  {
-    title: 'todo 3',
-    id: '7',
-    column: 'todo',
-  },
   // doing
   {
     title: 'doing 1',
