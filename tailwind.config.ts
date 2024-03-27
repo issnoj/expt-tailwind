@@ -79,6 +79,9 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         caret: 'disappear 1s infinite',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

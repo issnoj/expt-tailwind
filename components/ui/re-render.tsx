@@ -29,7 +29,7 @@ export const ReRender = ({
     <div className={cn('space-y-4', className)}>
       <Button onClick={handleClick}>{text}</Button>
       {show ? (
-        children
+        <div>{children}</div>
       ) : collapse ? (
         <div className={'collapse'}>{children}</div>
       ) : null}

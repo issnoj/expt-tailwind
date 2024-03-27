@@ -13,6 +13,7 @@ export const SideNav = () => {
         <hr />
         <Link href={'/detect-breakpoint'}>ブレークポイントの取得</Link>
         <Link href={'/link'}>リンク</Link>
+        <Link href={'/dnd'}>ドラッグアンドドロップ</Link>
         <Link href={'/kanban'}>カンバン</Link>
         <Link href={'/motion'}>モーション</Link>
         <Link href={'/typewriter'}>テキスト出現</Link>
