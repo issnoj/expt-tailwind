@@ -1,4 +1,6 @@
-import { DataTablePage } from '@/components/data-table/data-table-page';
+import { Content } from '@/components/ui/content';
+import { Sample } from '@/components/sample';
+import { StaticDataTableSample } from '@/app/data-table/static-data-table-sample';
 
 async function getData() {
   const res = await fetch(
@@ -15,7 +17,13 @@ async function getData() {
 const Page = async () => {
   const data = await getData();
 
-  return <DataTablePage data={data.pokemon} />;
+  return (
+    <Content title={'データテーブル'}>
+      <Sample>
+        <StaticDataTableSample data={data.pokemon} />
+      </Sample>
+    </Content>
+  );
 };
 
 export default Page;

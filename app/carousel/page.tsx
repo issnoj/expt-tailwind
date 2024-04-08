@@ -1,7 +1,28 @@
-import { CarouselPage } from '@/components/carousel/carousel-page';
+import { Content } from '@/components/ui/content';
+import { Sample } from '@/components/sample';
+import { ImgGridCarouselSample } from '@/app/carousel/img-grid-carousel-sample';
+import { ImgCarouselSample } from '@/app/carousel/img-carousel-sample';
+import { ImgTweenCarouselSample } from '@/app/carousel/img-tween-carousel-sample';
+import { PseudoCarousel } from '@/app/carousel/pseudo-carousel';
+import React from 'react';
 
 const Page = () => {
-  return <CarouselPage />;
+  return (
+    <Content title={'カルーセル'}>
+      <Sample>
+        <ImgGridCarouselSample />
+      </Sample>
+      <Sample>
+        <ImgCarouselSample />
+      </Sample>
+      <Sample>
+        <ImgTweenCarouselSample />
+      </Sample>
+      <Sample>
+        <PseudoCarousel />
+      </Sample>
+    </Content>
+  );
 };
 
 export default Page;
