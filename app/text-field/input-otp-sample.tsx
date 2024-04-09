@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { useState } from 'react';
-import { InputOtp } from '@/components/text-field/input-otp';
+import { InputOtp } from '@/components/input-text';
 import { ReRender } from '@/components/ui/re-render';
 
 const FormSchema = z.object({

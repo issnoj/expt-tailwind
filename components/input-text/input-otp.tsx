@@ -5,9 +5,8 @@ import { Key } from 'lucide-react';
 import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 
-type InputPasswordProps = {
+type InputPasswordProps = React.InputHTMLAttributes<HTMLInputElement> & {
   value: string;
-  onBlur: () => void;
   onExpired?: () => void;
   disabled?: boolean;
   className?: string;
@@ -37,9 +36,9 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
       setFocus(true);
     };
 
-    const handleBlur = () => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
       setFocus(false);
-      props.onBlur();
+      if (props.onBlur) props.onBlur(e);
     };
 
     const handleExpired = useCallback(() => {
@@ -51,7 +50,7 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
     return (
       <label
         className={cn(
-          'relative inline-flex gap-4 border border-input pl-4 font-mono text-sm',
+          'relative inline-flex gap-4 border border-input bg-background pl-4 font-mono text-sm',
           disabled || expired
             ? 'cursor-not-allowed text-muted-foreground'
             : 'cursor-pointer',
@@ -103,6 +102,7 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
           className={cn(
             'absolute inset-0 opacity-0',
             'left-[calc(1em+32px)] w-[calc(12em+48px)]',
+            disabled && 'cursor-not-allowed',
           )}
           disabled={disabled || expired}
           inputMode={'numeric'}

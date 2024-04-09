@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import {
-  DIRECTIONS,
+  linkAnimateUnderlinedirections,
   LinkAnimateUnderline,
 } from '@/components/link/link-animate-underline';
 import { Board } from '@/components/ui/board';
@@ -35,14 +35,14 @@ export const Samples: Story = {
   render: (args) => (
     <div className={'flex gap-4'}>
       <Board className={'flex flex-col gap-4'}>
-        {DIRECTIONS.map((direction) => (
+        {linkAnimateUnderlinedirections.map((direction) => (
           <LinkAnimateUnderline key={direction} {...args} direction={direction}>
             {direction}
           </LinkAnimateUnderline>
         ))}
       </Board>
       <Board className={'flex flex-col gap-4'}>
-        {DIRECTIONS.map((direction) => (
+        {linkAnimateUnderlinedirections.map((direction) => (
           <LinkAnimateUnderline
             key={direction}
             {...args}

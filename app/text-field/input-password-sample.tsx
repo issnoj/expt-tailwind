@@ -11,7 +11,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { useState } from 'react';
-import { InputPassword } from '@/components/text-field/input-password';
+import { InputPassword } from '@/components/input-text';
 
 const FormSchema = z.object({
   password: z

@@ -4,7 +4,7 @@ import { Content } from '@/components/ui/content';
 import { TabSample } from '@/app/motion/tab-sample';
 import { HeartButtonSample } from '@/app/motion/heart-button-sample';
 import { StaggerMenuSample } from '@/app/motion/stagger-menu-sample';
-import { IconMotionSample } from '@/app/motion/IconMotionSample';
+import { HamburgerButtonSample } from './hamburger-button-sample';
 
 const Page = () => {
   return (
@@ -16,7 +16,7 @@ const Page = () => {
         <StaggerMenuSample />
       </Sample>
       <Sample>
-        <IconMotionSample />
+        <HamburgerButtonSample />
       </Sample>
       <Sample>
         <TabSample />

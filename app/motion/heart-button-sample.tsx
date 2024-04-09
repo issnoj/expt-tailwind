@@ -1,9 +1,9 @@
 'use client';
 
 import { Board } from '@/components/ui/board';
-import { HeartButton, HeartButtonState } from '@/app/motion/heart-button';
 import React, { useCallback } from 'react';
 import { Link } from '@/components/ui/link';
+import { HeartButton, HeartButtonState } from '@/components/animate-button';
 
 export const HeartButtonSample = () => {
   const handleClicked = useCallback((state: HeartButtonState) => {

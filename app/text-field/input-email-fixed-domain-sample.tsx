@@ -10,7 +10,7 @@ import {
   FormItem,
   FormMessage,
 } from '@/components/ui/form';
-import { InputEmailFixedDomain } from '@/components/text-field/input-email-fixed-domain';
+import { InputEmailFixedDomain } from '@/components/input-text';
 import { useState } from 'react';
 
 const FormSchema = z.object({

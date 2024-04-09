@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 type Props = TextareaAutosizeProps & {
   disabled: boolean;
-  onSubmit: () => void;
+  onSubmit?: () => void;
   submitEnter?: boolean;
   className?: string;
 };
@@ -14,7 +14,7 @@ type Props = TextareaAutosizeProps & {
 export const Textarea = React.forwardRef<HTMLTextAreaElement, Props>(
   ({ disabled, onSubmit, submitEnter = false, className, ...props }, ref) => {
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key !== 'Enter') return;
+      if (!onSubmit || e.key !== 'Enter') return;
       if (submitEnter && !e.shiftKey && !e.nativeEvent.isComposing) {
         onSubmit();
         e.preventDefault();

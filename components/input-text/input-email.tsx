@@ -5,7 +5,7 @@ import { Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import * as React from 'react';
 
-type InputEmailProps = {
+type InputEmailProps = React.InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
   className?: string;
 };

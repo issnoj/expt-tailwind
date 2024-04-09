@@ -1,6 +1,5 @@
 'use client';
 
-import { InputMultiline } from '@/components/text-field/input-multiline';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,6 +12,7 @@ import {
 } from '@/components/ui/form';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/textarea';
 
 const FormSchema = z.object({
   message: z.string().min(3, {
@@ -51,7 +51,7 @@ export const LinedMultilineSample = () => {
                       'flex flex-col overflow-hidden rounded border border-input bg-background p-2 shadow focus-within:border-primary'
                     }
                   >
-                    <InputMultiline
+                    <Textarea
                       className={
                         'bg-[linear-gradient(0deg,hsl(var(--foreground)_/_0.2)_1px,transparent_1px)] bg-[length:1em_1lh] bg-local'
                       }

@@ -1,5 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { DIRECTIONS, LinkAnimateBg } from '@/components/link/link-animate-bg';
+import {
+  linkAnimateBgDirections,
+  LinkAnimateBg,
+} from '@/components/link/link-animate-bg';
 import { Board } from '@/components/ui/board';
 
 const meta: Meta<typeof LinkAnimateBg> = {
@@ -32,14 +35,14 @@ export const Samples: Story = {
   render: (args) => (
     <div className={'flex gap-4'}>
       <Board className={'flex flex-col gap-4'}>
-        {DIRECTIONS.map((direction) => (
+        {linkAnimateBgDirections.map((direction) => (
           <LinkAnimateBg key={direction} {...args} direction={direction}>
             {direction}
           </LinkAnimateBg>
         ))}
       </Board>
       <Board className={'flex flex-col gap-4'}>
-        {DIRECTIONS.map((direction) => (
+        {linkAnimateBgDirections.map((direction) => (
           <LinkAnimateBg
             key={direction}
             {...args}

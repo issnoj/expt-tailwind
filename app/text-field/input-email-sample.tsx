@@ -1,6 +1,6 @@
 'use client';
 
-import { InputEmail } from '@/components/text-field/input-email';
+import { InputEmail } from '@/components/input-text';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';

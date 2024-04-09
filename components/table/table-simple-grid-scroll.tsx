@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils';
 
 type Columns = Array<{ accessKey: string; header: string }>;
 
-export type TableSimpleGridProps = {
+export type TableSimpleGridScrollProps = {
   columns: Columns;
   data: Array<Record<string, React.ReactNode>>;
   className?: string;
@@ -12,7 +12,7 @@ export const TableSimpleGridScroll = ({
   columns,
   data,
   className,
-}: TableSimpleGridProps) => {
+}: TableSimpleGridScrollProps) => {
   return (
     <div className={'overflow-x-scroll'}>
       <table className={cn('table-fixed', className)}>

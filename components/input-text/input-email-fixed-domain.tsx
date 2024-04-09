@@ -3,12 +3,13 @@ import { cn } from '@/lib/utils';
 import { Mail } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
-type InputEmailFixedDomainProps = {
-  value: string;
-  domain: string;
-  disabled?: boolean;
-  className?: string;
-};
+type InputEmailFixedDomainProps =
+  React.InputHTMLAttributes<HTMLInputElement> & {
+    value: string;
+    domain: string;
+    disabled?: boolean;
+    className?: string;
+  };
 
 export const InputEmailFixedDomain = React.forwardRef<
   HTMLInputElement,

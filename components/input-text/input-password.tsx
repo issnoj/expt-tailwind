@@ -7,7 +7,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
-type InputPasswordProps = {
+type InputPasswordProps = React.InputHTMLAttributes<HTMLInputElement> & {
   disabled?: boolean;
   className?: string;
 };
@@ -32,7 +32,7 @@ export const InputPassword = React.forwardRef<
         <Lock size={'1em'} />
       </div>
       <Input
-        autoComplete={'new-password'}
+        autoComplete={'current-password'}
         className={
           'disabled:opacity-1 rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0'
         }

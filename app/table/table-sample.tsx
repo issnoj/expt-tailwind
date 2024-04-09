@@ -1,12 +1,12 @@
 'use client';
 
-import { TableSimple, TableSimpleProps } from '@/components/ui/table-simple';
+import { TableSimple, TableSimpleProps } from '@/components/table/table-simple';
 import {
   TableSimpleGrid,
   TableSimpleGridProps,
-} from '@/components/ui/table-simple-grid';
+} from '@/components/table/table-simple-grid';
 import { SwitchMobile } from '@/components/ui/switch-mobile';
-import { TableSimpleGridScroll } from '@/components/ui/table-simple-grid-scroll';
+import { TableSimpleGridScroll } from '@/components/table/table-simple-grid-scroll';
 import { Board } from '@/components/ui/board';
 
 export const TableSample = () => {

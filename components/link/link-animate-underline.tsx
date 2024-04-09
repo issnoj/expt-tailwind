@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-export const DIRECTIONS = [
+export const linkAnimateUnderlinedirections = [
   'center',
   'left',
   'left-right',
@@ -10,7 +10,7 @@ export const DIRECTIONS = [
 
 export type LinkAnimateUnderlineProps =
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    direction: (typeof DIRECTIONS)[number];
+    direction: (typeof linkAnimateUnderlinedirections)[number];
     duration?: number;
   };
 

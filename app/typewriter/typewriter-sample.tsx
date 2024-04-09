@@ -1,6 +1,6 @@
 'use client';
 
-import { Typewriter, TypewriterProps } from '@/components/ui/typewriter';
+import { Typewriter, TypewriterProps } from '@/components/text/typewriter';
 import { ReRender } from '@/components/ui/re-render';
 import { Board } from '@/components/ui/board';
 

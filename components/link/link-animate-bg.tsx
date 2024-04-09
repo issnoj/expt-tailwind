@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-export const DIRECTIONS = [
+export const linkAnimateBgDirections = [
   'h-center', // 中央から出現
   'left', // 左から出現
   'left-right', // 左から出現し、右に消える
@@ -16,7 +16,7 @@ export const DIRECTIONS = [
 
 export type LinkAnimateBgProps =
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    direction: (typeof DIRECTIONS)[number];
+    direction: (typeof linkAnimateBgDirections)[number];
     duration?: number;
   };
 

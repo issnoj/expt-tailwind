@@ -14,7 +14,7 @@ export const ReRender = ({
   children,
   className,
   callback,
-  collapse = true,
+  collapse = false,
   text = '再表示',
 }: Props) => {
   const [show, setShow] = useState(true);
