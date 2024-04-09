@@ -2,43 +2,28 @@
 
 import { cn } from '@/lib/utils';
 import { Board } from '@/components/ui/board';
-import {
-  LinkAnimateBg,
-  LinkAnimateBgProps,
-} from '@/components/link/link-animate-bg';
+import { DIRECTIONS, LinkAnimateBg } from '@/components/link/link-animate-bg';
 
 export const LinkAnimateBgSample = () => {
-  const props = [
-    { direction: 'h-center' },
-    { direction: 'left' },
-    { direction: 'left-right' },
-    { direction: 'right' },
-    { direction: 'right-left' },
-    { direction: 'v-center' },
-    { direction: 'top' },
-    { direction: 'top-bottom' },
-    { direction: 'bottom' },
-    { direction: 'bottom-top' },
-  ] as LinkAnimateBgProps[];
   return (
     <Board title={'背景アニメーション・リンク'}>
       <div className={'flex flex-col gap-4'}>
         <div className={'flex gap-4'}>
-          {props.map((props, index) => (
-            <LinkAnimateBg href={'#'} key={index} {...props}>
+          {DIRECTIONS.map((direction, index) => (
+            <LinkAnimateBg direction={direction} href={'#'} key={index}>
               LINK
             </LinkAnimateBg>
           ))}
         </div>
         <div className={'flex gap-4'}>
-          {props.map((props, index) => (
+          {DIRECTIONS.map((direction, index) => (
             <LinkAnimateBg
               className={
                 'text-blue-400 hover:text-blue-600 dark:hover:text-blue-200 [&>span]:bg-blue-400/10'
               }
+              direction={direction}
               href={'#'}
               key={index}
-              {...props}
             >
               LINK
             </LinkAnimateBg>

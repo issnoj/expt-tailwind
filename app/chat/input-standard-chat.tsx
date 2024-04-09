@@ -1,4 +1,3 @@
-import TextareaAutosize from 'react-textarea-autosize';
 import { Button } from '@/components/ui/button';
 import {
   Paperclip,
@@ -25,6 +24,7 @@ import {
 import { Control, Controller, UseFormTrigger } from 'react-hook-form';
 import { StandardChatSampleFormData } from '@/app/chat/standard-chat-sample';
 import { cn } from '@/lib/utils';
+import { Textarea } from '@/components/textarea';
 
 export type SelectedFile = {
   file: File;
@@ -71,13 +71,6 @@ export const InputStandardChat = ({
   const [isOpenEmojiPicker, setIsOpenEmojiPicker] = useState(false);
   const [selectedFile, setSelectedFile] = useState<SelectedFile>();
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && e.ctrlKey && !e.nativeEvent.isComposing) {
-      onSubmit();
-      e.preventDefault();
-    }
-  };
 
   const handleOpenChangeEmojiPicker = (open: boolean) => {
     setIsOpenEmojiPicker(open);
@@ -149,17 +142,13 @@ export const InputStandardChat = ({
         render={({ field }) => (
           <FormItem className={'flex flex-col space-y-0'}>
             <FormControl>
-              <TextareaAutosize
-                autoComplete="off"
-                autoCorrect="off"
+              <Textarea
                 className={cn(
                   'max-h-[calc(50vh-56px)] w-full resize-none border-0 bg-transparent p-4 focus:outline-0 focus-visible:outline-0',
                 )}
                 disabled={disabledInput}
-                onKeyDown={handleKeyDown}
+                onSubmit={onSubmit}
                 placeholder="Send a message"
-                rows={1}
-                spellCheck={false}
                 {...field}
                 ref={textareaRef}
               />

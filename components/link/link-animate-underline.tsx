@@ -1,12 +1,22 @@
 import { cn } from '@/lib/utils';
 
+export const DIRECTIONS = [
+  'center',
+  'left',
+  'left-right',
+  'right',
+  'right-left',
+] as const;
+
 export type LinkAnimateUnderlineProps =
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    direction?: 'center' | 'left' | 'left-right' | 'right' | 'right-left';
+    direction: (typeof DIRECTIONS)[number];
+    duration?: number;
   };
 
 export const LinkAnimateUnderline = ({
   direction = 'center',
+  duration = 200,
   className,
   children,
   ...props
@@ -26,13 +36,14 @@ export const LinkAnimateUnderline = ({
       <span
         className={cn(
           'absolute bottom-0 left-0 h-1 w-full bg-foreground transition-transform ease-out',
-          'scale-x-0 duration-200',
+          'scale-x-0',
           direction === 'center' && 'origin-center',
           direction === 'left' && 'origin-left',
           direction === 'right-left' && 'origin-left',
           direction === 'right' && 'origin-right',
           direction === 'left-right' && 'origin-right',
         )}
+        style={{ transitionDuration: `${duration}ms` }}
       />
     </a>
   );

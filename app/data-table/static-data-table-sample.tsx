@@ -1,6 +1,6 @@
 'use client';
 
-import { DataTable } from '@/components/data-table/data-table';
+import { DataTable } from '@/app/data-table/data-table';
 import { columns, Pokemon } from './columns';
 import { Board } from '@/components/ui/board';
 import { Input } from '@/components/ui/input';

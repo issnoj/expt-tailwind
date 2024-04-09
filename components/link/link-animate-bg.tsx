@@ -1,22 +1,28 @@
 import { cn } from '@/lib/utils';
 
+export const DIRECTIONS = [
+  'h-center', // 中央から出現
+  'left', // 左から出現
+  'left-right', // 左から出現し、右に消える
+  'right', // 右から出現
+  'right-left', // 右から出現し、左に消える
+  'v-center', // 中央から出現
+  'top', // 上から出現
+  'top-bottom', // 上から出現し、下に消える
+  'bottom', // 下から出現
+  'bottom-top', // 下から出現し、上に消える
+  'circle', // 中央から円形に出現
+] as const;
+
 export type LinkAnimateBgProps =
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    direction:
-      | 'h-center' // 中央から出現
-      | 'left' // 左から出現
-      | 'left-right' // 左から出現し、右に消える
-      | 'right' // 右から出現
-      | 'right-left' // 右から出現し、左に消える
-      | 'v-center' // 中央から出現
-      | 'top' // 上から出現
-      | 'top-bottom' // 上から出現し、下に消える
-      | 'bottom' // 下から出現
-      | 'bottom-top'; // 下から出現し、上に消える
+    direction: (typeof DIRECTIONS)[number];
+    duration?: number;
   };
 
 export const LinkAnimateBg = ({
   direction = 'h-center',
+  duration = 200,
   className,
   children,
   ...props
@@ -27,7 +33,12 @@ export const LinkAnimateBg = ({
     )
   ) {
     return (
-      <Horizontal className={className} direction={direction} {...props}>
+      <Horizontal
+        className={className}
+        direction={direction}
+        duration={duration}
+        {...props}
+      >
         {children}
       </Horizontal>
     );
@@ -38,13 +49,23 @@ export const LinkAnimateBg = ({
     )
   ) {
     return (
-      <Vertical className={className} direction={direction} {...props}>
+      <Vertical
+        className={className}
+        direction={direction}
+        duration={duration}
+        {...props}
+      >
         {children}
       </Vertical>
     );
   }
   return (
-    <CenterCircle className={className} direction={direction} {...props}>
+    <CenterCircle
+      className={className}
+      direction={direction}
+      duration={duration}
+      {...props}
+    >
       {children}
     </CenterCircle>
   );
@@ -54,6 +75,7 @@ const Horizontal = ({
   direction,
   className,
   children,
+  duration,
   ...props
 }: LinkAnimateBgProps) => {
   return (
@@ -78,6 +100,7 @@ const Horizontal = ({
           direction === 'right' && 'origin-right',
           direction === 'left-right' && 'origin-right',
         )}
+        style={{ transitionDuration: `${duration}ms` }}
       />
     </a>
   );
@@ -87,6 +110,7 @@ const Vertical = ({
   direction,
   className,
   children,
+  duration,
   ...props
 }: LinkAnimateBgProps) => {
   return (
@@ -111,6 +135,7 @@ const Vertical = ({
           direction === 'top-bottom' && 'origin-bottom',
           direction === 'bottom-top' && 'origin-top',
         )}
+        style={{ transitionDuration: `${duration}ms` }}
       />
     </a>
   );
@@ -119,6 +144,7 @@ const Vertical = ({
 const CenterCircle = ({
   className,
   children,
+  duration,
   ...props
 }: LinkAnimateBgProps) => {
   return (
@@ -138,6 +164,7 @@ const CenterCircle = ({
           'inset-0 m-auto h-0 pt-[100%]',
           'origin-center scale-0',
         )}
+        style={{ transitionDuration: `${duration}ms` }}
       />
     </a>
   );

@@ -1,12 +1,13 @@
 'use client';
 
 import { useChat } from './use-chat';
-import { InputStandardChat } from '@/components/chat/input-standard-chat';
+import { InputStandardChat } from '@/app/chat/input-standard-chat';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 import { useState } from 'react';
+import { Board } from '@/components/ui/board';
 
 const FILE_TYPES = ['image/webp', 'image/jpeg', 'image/png', 'image/svg+xml'];
 
@@ -86,7 +87,24 @@ export const StandardChatSample = () => {
   };
 
   return (
-    <div>
+    <Board
+      className={'w-96'}
+      remark={
+        <div>
+          <ul>
+            <li>
+              ・<kbd>Enter</kbd> で改行
+            </li>
+            <li>
+              ・<kbd>Ctrl</kbd> + <kbd>Enter</kbd> で送信
+            </li>
+            <li>・絵文字</li>
+            <li>・1つの画像ファイル添付</li>
+          </ul>
+        </div>
+      }
+      title={'標準チャット'}
+    >
       <Form {...form}>
         <form noValidate onSubmit={form.handleSubmit(onSubmit)}>
           <InputStandardChat
@@ -101,6 +119,6 @@ export const StandardChatSample = () => {
           />
         </form>
       </Form>
-    </div>
+    </Board>
   );
 };
