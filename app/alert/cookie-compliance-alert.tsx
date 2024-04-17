@@ -65,9 +65,9 @@ const Content = () => {
               >
                 同意する
               </Button>
-              <span className="absolute right-0 top-0 -mr-1 -mt-1 flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-sky-500" />
+              <span className="absolute right-0 top-0 -mr-1 -mt-1 flex size-3">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-sky-400 opacity-75" />
+                <span className="relative inline-flex size-3 rounded-full bg-sky-500" />
               </span>
             </div>
           </div>

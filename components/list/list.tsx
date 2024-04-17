@@ -25,7 +25,7 @@ export const ListItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <li className={cn('relative ml-5', className)} ref={ref} {...props}>
     <div
-      className={'absolute -left-[1.25rem] grid h-[1lh] place-content-center'}
+      className={'absolute -left-5 grid h-[1lh] place-content-center'}
     >
       <Dot className="size-4 scale-150" />
     </div>
@@ -80,7 +80,7 @@ const ListToggleTitle = React.forwardRef<
       {...props}
     >
       <div
-        className={'absolute -left-[1.25rem] grid h-[1lh] place-content-center'}
+        className={'absolute -left-5 grid h-[1lh] place-content-center'}
       >
         <ChevronRight className="size-4 transition-transform duration-200" />
       </div>

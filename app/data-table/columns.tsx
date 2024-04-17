@@ -69,7 +69,7 @@ const Header = <TData, TValue>({
       variant="ghost"
     >
       {title}
-      <SortIcon className="ml-2 h-4 w-4" />
+      <SortIcon className="ml-2 size-4" />
     </Button>
   );
 };
@@ -199,9 +199,9 @@ export const columns: ColumnDef<Pokemon, NameColumnMeta<{ name: string }>>[] = [
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="h-8 w-8 p-0" variant="ghost">
+            <Button className="size-8 p-0" variant="ghost">
               <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
+              <MoreHorizontal className="size-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

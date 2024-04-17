@@ -21,7 +21,7 @@ export const TabSample = () => {
     >
       <div className="flex h-[100px] w-[300px] flex-col rounded border bg-background">
         <nav className={'h-[40px]'}>
-          <ul className={'border-b-1 flex w-full border-b'}>
+          <ul className={'flex w-full border-b-2'}>
             {tabs.map((item) => (
               <li
                 className={cn(
@@ -34,7 +34,7 @@ export const TabSample = () => {
                 {`${item.icon} ${item.label}`}
                 {item === selectedTab ? (
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500"
+                    className="absolute inset-x-0 bottom-0 h-1 bg-blue-500"
                     layoutId="underline"
                   />
                 ) : null}

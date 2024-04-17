@@ -75,7 +75,7 @@ export const InputOtp = React.forwardRef<HTMLInputElement, InputPasswordProps>(
                 {active && values.length < 6 && (
                   <div
                     className={
-                      'absolute h-[1em] animate-caret border-0 border-l-[1px] border-black font-thin'
+                      'absolute h-[1em] animate-caret border-0 border-l-DEFAULT border-black font-thin'
                     }
                   />
                 )}

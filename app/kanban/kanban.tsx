@@ -312,7 +312,7 @@ const AddCard = ({
           <textarea
             autoFocus
             className={
-              'w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm placeholder-violet-300 focus:outline-0'
+              'w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm placeholder:text-violet-300 focus:outline-0'
             }
             onChange={(e) => setText(e.target.value)}
             placeholder={'Add new task...'}

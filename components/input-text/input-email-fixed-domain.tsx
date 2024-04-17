@@ -41,7 +41,7 @@ export const InputEmailFixedDomain = React.forwardRef<
         </div>
         <Input
           className={
-            'disabled:opacity-1 w-0 min-w-[5ch] max-w-[20ch] rounded-none border-0 px-0 text-right focus-visible:ring-0 focus-visible:ring-offset-0'
+            'w-0 min-w-[5ch] max-w-[20ch] rounded-none border-0 px-0 text-right focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50'
           }
           disabled={disabled}
           placeholder={'-----'}

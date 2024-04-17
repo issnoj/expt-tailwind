@@ -28,7 +28,7 @@ export const InputEmail = React.forwardRef<HTMLInputElement, InputEmailProps>(
         </div>
         <Input
           className={
-            'disabled:opacity-1 rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0'
+            'rounded-none border-0 px-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50'
           }
           disabled={disabled}
           placeholder={'Email'}
