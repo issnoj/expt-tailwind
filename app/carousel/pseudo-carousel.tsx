@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useState } from 'react';
 import { carouselSampleData } from '@/app/carousel/carousel-sample-data';
 import * as React from 'react';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';

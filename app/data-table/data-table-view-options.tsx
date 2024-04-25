@@ -18,7 +18,7 @@ export const DataTableViewOptions = <TData,>({ table }: Props<TData>) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="ml-auto hidden lg:flex" variant="outline">
+        <Button className="ml-auto" variant="outline">
           <Settings2 className="mr-2 w-4" />
           View
         </Button>

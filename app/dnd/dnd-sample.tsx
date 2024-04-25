@@ -15,7 +15,7 @@ import {
   useDroppable,
 } from '@dnd-kit/core';
 import { cn } from '@/lib/utils';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core/dist/types';
 import { ReRender } from '@/components/ui/re-render';

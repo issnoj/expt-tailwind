@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const tabs = [
   { icon: '🍅', label: 'Tomato' },

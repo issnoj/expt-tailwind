@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Sample } from '@/components/sample';
+import { Content } from '@/components/layouts/content';
+import { Sample } from '@/components/layouts/sample';
 import { CookieComplianceAlert } from '@/app/alert/cookie-compliance-alert';
 import React from 'react';
 

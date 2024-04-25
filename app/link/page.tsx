@@ -1,8 +1,8 @@
 import { LinkAnimateUnderlineSample } from '@/app/link/link-animate-underline-sample';
-import { Content } from '@/components/ui/content';
+import { Content } from '@/components/layouts/content';
 import { OtherLinkSample } from '@/app/link/other-link-sample';
 import { LinkAnimateBgSample } from '@/app/link/link-animate-bg-sample';
-import { Sample } from '@/components/sample';
+import { Sample } from '@/components/layouts/sample';
 
 const Page = () => {
   return (

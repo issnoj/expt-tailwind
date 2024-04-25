@@ -13,7 +13,10 @@ export const Board = React.forwardRef<HTMLDivElement, Props>(
   ({ children, title, remark, id, className, ...props }, ref) => {
     return (
       <div
-        className={cn('rounded border bg-background p-8 shadow', className)}
+        className={cn(
+          'rounded border bg-background p-2 shadow sm:p-8',
+          className,
+        )}
         id={id}
         ref={ref}
         {...props}

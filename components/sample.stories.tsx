@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Sample } from './sample';
+import { Sample } from './layouts/sample';
 import { userEvent, within } from '@storybook/test';
 import { expect } from '@storybook/jest';
 

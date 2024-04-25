@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Board } from '@/components/ui/board';
+import { Content } from '@/components/layouts/content';
+import { Board } from '@/components/layouts/board';
 import { TimelineSample } from '@/app/timeline/timeline-sample';
 import { TimelineTableSample } from '@/app/timeline/timeline-table-sample';
 import React from 'react';

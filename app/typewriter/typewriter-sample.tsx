@@ -2,7 +2,7 @@
 
 import { Typewriter, TypewriterProps } from '@/components/text/typewriter';
 import { ReRender } from '@/components/ui/re-render';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const texts: TypewriterProps[] = [
   {

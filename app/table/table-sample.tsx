@@ -7,7 +7,7 @@ import {
 } from '@/components/table/table-simple-grid';
 import { SwitchMobile } from '@/components/ui/switch-mobile';
 import { TableSimpleGridScroll } from '@/components/table/table-simple-grid-scroll';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 export const TableSample = () => {
   const data: TableSimpleProps['data'] = [

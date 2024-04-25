@@ -1,10 +1,49 @@
+import React from 'react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-import { SideNav } from '@/components/side-nav';
+import { Sidebar } from '@/app/sidebar';
+import local from 'next/font/local';
+import { cn } from '@/lib/utils';
+import { AppProvider } from '@/app/provider';
+import { Main } from '@/app/main';
+import { Header } from '@/app/header';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = local({
+  src: [
+    {
+      path: '../public/fonts/Inter-Regular.ttf',
+    },
+  ],
+  variable: '--font-inter',
+});
+
+const source = local({
+  src: [
+    {
+      path: '../public/fonts/SourceSans3-Regular.otf',
+    },
+  ],
+  variable: '--font-source',
+});
+
+const sourceSerif = local({
+  src: [
+    {
+      path: '../public/fonts/SourceSerif4-Regular.ttf',
+    },
+  ],
+  variable: '--font-source-serif',
+});
+
+const ubuntu = local({
+  src: [
+    {
+      path: '../public/fonts/UbuntuMono-Regular.ttf',
+    },
+  ],
+  variable: '--font-ubuntu',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,22 +56,50 @@ const Layout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html
+      className={cn(
+        inter.variable,
+        source.variable,
+        sourceSerif.variable,
+        ubuntu.variable,
+      )}
+      lang="ja"
+      suppressHydrationWarning
+    >
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           disableTransitionOnChange
           enableSystem
         >
-          <div className={'grid w-full grid-cols-[300px,1fr]'}>
-            <SideNav />
-            <main>{children}</main>
-          </div>
+          <AppProvider>
+            <Header />
+            <Sidebar />
+            <Main>{children}</Main>
+          </AppProvider>
         </ThemeProvider>
+        <WindowSizeIndicator />
       </body>
     </html>
   );
 };
 
 export default Layout;
+
+const WindowSizeIndicator = () => {
+  return (
+    <div
+      className={
+        'fixed bottom-1 left-1 z-50 flex size-8 items-center justify-center rounded-full bg-gray-800 font-mono text-xs font-bold text-white'
+      }
+    >
+      <div className={'block sm:hidden'}>xs</div>
+      <div className={'hidden sm:block md:hidden'}>sm</div>
+      <div className={'hidden md:block lg:hidden'}>md</div>
+      <div className={'hidden lg:block xl:hidden'}>lg</div>
+      <div className={'hidden xl:block 2xl:hidden'}>xl</div>
+      <div className={'hidden 2xl:block'}>2xl</div>
+    </div>
+  );
+};

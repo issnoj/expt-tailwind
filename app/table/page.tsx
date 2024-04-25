@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Sample } from '@/components/sample';
+import { Content } from '@/components/layouts/content';
+import { Sample } from '@/components/layouts/sample';
 import { TableSample } from '@/app/table/table-sample';
 import React from 'react';
 

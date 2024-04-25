@@ -4,20 +4,20 @@ import {
   linkAnimateUnderlinedirections,
   LinkAnimateUnderline,
 } from '@/components/link/link-animate-underline';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 export const LinkAnimateUnderlineSample = () => {
   return (
     <Board title={'下線アニメーション・リンク'}>
       <div className={'flex flex-col gap-4'}>
-        <div className={'flex gap-4'}>
+        <div className={'flex flex-wrap gap-4'}>
           {linkAnimateUnderlinedirections.map((direction, index) => (
             <LinkAnimateUnderline direction={direction} href={'#'} key={index}>
               LINK
             </LinkAnimateUnderline>
           ))}
         </div>
-        <div className={'flex gap-4'}>
+        <div className={'flex flex-wrap gap-4'}>
           {linkAnimateUnderlinedirections.map((direction, index) => (
             <LinkAnimateUnderline
               className={

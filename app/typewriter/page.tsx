@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Sample } from '@/components/sample';
+import { Content } from '@/components/layouts/content';
+import { Sample } from '@/components/layouts/sample';
 import { TypewriterSample } from '@/app/typewriter/typewriter-sample';
 import React from 'react';
 

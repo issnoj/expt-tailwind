@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Sample } from '@/components/sample';
+import { Content } from '@/components/layouts/content';
+import { Sample } from '@/components/layouts/sample';
 import { StaticDataTableSample } from '@/app/data-table/static-data-table-sample';
 
 async function getData() {

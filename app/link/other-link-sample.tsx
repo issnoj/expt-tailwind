@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 export const OtherLinkSample = () => {
   return (

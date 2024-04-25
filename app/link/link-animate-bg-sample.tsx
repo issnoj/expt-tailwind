@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import {
   linkAnimateBgDirections,
   LinkAnimateBg,
@@ -11,14 +11,14 @@ export const LinkAnimateBgSample = () => {
   return (
     <Board title={'背景アニメーション・リンク'}>
       <div className={'flex flex-col gap-4'}>
-        <div className={'flex gap-4'}>
+        <div className={'flex flex-wrap gap-4'}>
           {linkAnimateBgDirections.map((direction, index) => (
             <LinkAnimateBg direction={direction} href={'#'} key={index}>
               LINK
             </LinkAnimateBg>
           ))}
         </div>
-        <div className={'flex gap-4'}>
+        <div className={'flex flex-wrap gap-4'}>
           {linkAnimateBgDirections.map((direction, index) => (
             <LinkAnimateBg
               className={
@@ -32,7 +32,7 @@ export const LinkAnimateBgSample = () => {
             </LinkAnimateBg>
           ))}
         </div>
-        <div className={'flex gap-4'}>
+        <div className={'flex flex-wrap gap-4'}>
           <a
             className={cn(
               'relative border px-8 py-2 font-bold text-foreground/60 hover:text-foreground',

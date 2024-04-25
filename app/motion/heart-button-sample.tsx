@@ -1,6 +1,6 @@
 'use client';
 
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import React, { useCallback } from 'react';
 import { Link } from '@/components/ui/link';
 import { HeartButton, HeartButtonState } from '@/components/animate-button';

@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
   useCarousel,
 } from '@/components/ui/carousel';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { carouselSampleData } from '@/app/carousel/carousel-sample-data';
 
 export const ImgGridCarouselSample = () => {

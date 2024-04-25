@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { Form } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const FormSchema = z.object({
   message: z.string().min(3, {

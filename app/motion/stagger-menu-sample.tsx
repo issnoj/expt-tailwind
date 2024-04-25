@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { Link } from '@/components/ui/link';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';

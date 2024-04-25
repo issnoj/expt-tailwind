@@ -2,7 +2,7 @@
 
 import { DataTable } from '@/app/data-table/data-table';
 import { columns, Pokemon } from './columns';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { Input } from '@/components/ui/input';
 
 type Props = {
@@ -13,7 +13,6 @@ export const StaticDataTableSample = ({ data }: Props) => {
   return (
     <Board title={'静的データテーブル'}>
       <DataTable
-        className={'w-[600px]'}
         columns={columns}
         data={data}
         filterComponent={(table) => (

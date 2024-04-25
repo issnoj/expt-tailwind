@@ -1,7 +1,7 @@
 'use client';
 
 import { Carousel, CarouselItem, useCarousel } from '@/components/ui/carousel';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { carouselSampleData } from '@/app/carousel/carousel-sample-data';
 import { cn } from '@/lib/utils';
 import * as React from 'react';

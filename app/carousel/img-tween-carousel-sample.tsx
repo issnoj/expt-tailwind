@@ -1,6 +1,6 @@
 'use client';
 
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { carouselSampleData } from '@/app/carousel/carousel-sample-data';
 import * as React from 'react';
 import { useCallback, useEffect, useRef } from 'react';

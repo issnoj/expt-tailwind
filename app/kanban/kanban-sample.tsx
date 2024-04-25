@@ -1,7 +1,7 @@
 'use client';
 
 import { Link } from '@/components/ui/link';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { ReRender } from '@/components/ui/re-render';
 import { useCallback, useEffect, useState } from 'react';
 import { Kanban } from './kanban';

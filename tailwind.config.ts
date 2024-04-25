@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 const config = {
   darkMode: ['class'],
@@ -81,6 +82,13 @@ const config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', ...fontFamily.sans],
+        inter: ['var(--font-inter)', ...fontFamily.sans],
+        source: ['var(--font-source)', ...fontFamily.sans],
+        'source-serif': ['var(--font-source-serif)', ...fontFamily.serif],
+        ubuntu: ['var(--font-ubuntu)', ...fontFamily.sans],
       },
     },
   },

@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form } from '@/components/ui/form';
 import { useState } from 'react';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const FILE_TYPES = ['image/webp', 'image/jpeg', 'image/png', 'image/svg+xml'];
 

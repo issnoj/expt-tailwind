@@ -1,6 +1,6 @@
 'use client';
 
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import React, { useState } from 'react';
 import { HamburgerButton } from '@/components/animate-button';
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ReRender } from '@/components/ui/re-render';

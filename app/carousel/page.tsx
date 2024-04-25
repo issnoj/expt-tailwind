@@ -1,5 +1,5 @@
-import { Content } from '@/components/ui/content';
-import { Sample } from '@/components/sample';
+import { Content } from '@/components/layouts/content';
+import { Sample } from '@/components/layouts/sample';
 import { ImgGridCarouselSample } from '@/app/carousel/img-grid-carousel-sample';
 import { ImgCarouselSample } from '@/app/carousel/img-carousel-sample';
 import { ImgTweenCarouselSample } from '@/app/carousel/img-tween-carousel-sample';

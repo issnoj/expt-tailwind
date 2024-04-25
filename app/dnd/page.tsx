@@ -1,7 +1,7 @@
-import { Content } from '@/components/ui/content';
+import { Content } from '@/components/layouts/content';
 import { List, ListItem, ListToggleItem } from '@/components/list/list';
 import { Link } from '@/components/ui/link';
-import { Sample } from '@/components/sample';
+import { Sample } from '@/components/layouts/sample';
 import { DndSample } from '@/app/dnd/dnd-sample';
 import React from 'react';
 

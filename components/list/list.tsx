@@ -12,7 +12,7 @@ export const List = ({
 }: React.HTMLAttributes<HTMLUListElement>) => {
   return (
     <AccordionPrimitive.Root asChild type={'multiple'}>
-      <ul className={className} {...props}>
+      <ul className={cn('flex flex-col gap-1', className)} {...props}>
         {children}
       </ul>
     </AccordionPrimitive.Root>
@@ -23,10 +23,12 @@ export const ListItem = React.forwardRef<
   HTMLLIElement,
   React.HTMLAttributes<HTMLLIElement>
 >(({ className, children, ...props }, ref) => (
-  <li className={cn('relative ml-5', className)} ref={ref} {...props}>
-    <div
-      className={'absolute -left-5 grid h-[1lh] place-content-center'}
-    >
+  <li
+    className={cn('relative ml-5 [&_ul]:mt-1', className)}
+    ref={ref}
+    {...props}
+  >
+    <div className={'absolute -left-5 grid h-[1lh] place-content-center'}>
       <Dot className="size-4 scale-150" />
     </div>
     {children}
@@ -79,9 +81,7 @@ const ListToggleTitle = React.forwardRef<
       ref={ref}
       {...props}
     >
-      <div
-        className={'absolute -left-5 grid h-[1lh] place-content-center'}
-      >
+      <div className={'absolute -left-5 grid h-[1lh] place-content-center'}>
         <ChevronRight className="size-4 transition-transform duration-200" />
       </div>
       {children}
