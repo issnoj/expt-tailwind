@@ -1,0 +1,77 @@
+import { FileCode } from '@/app/article/file-code';
+import { Example } from './example';
+
+export const metadata = {
+  title: '<dialog> でダイアログを作る',
+  date: '2024-04-30',
+};
+
+# {metadata.title}
+
+## 概要
+
+dialog 要素の `showModal()` でモーダルを開く。
+開いているモーダルには疑似クラス `:modal` で、
+背景には疑似要素 `::backdrop` でアクセス可能。
+モーダル表示中は dialog 要素に真偽値の属性 `open` が付与される。
+
+開いたモーダルは top-layer になり、dialog 要素以外のすべての要素は inert になる。
+DevTools で確認すると、
+以下のような表示が確認できる。
+
+<img src="/img/dialog.png" alt={'dialog'} />
+
+背景の疑似要素 `::backdrop` には Chrome の場合、以下のようなスタイルがデフォルトで適用される。
+tailwind では `backdrop:backdrop-blur` などとしてスタイルを適用できる。
+
+```css
+dialog:-internal-dialog-in-top-layer::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.1);
+}
+```
+
+以下のようにモーダル内に form を置き `method=dialog` で送信するとモーダルを閉じることができる。
+esc キーでも閉じることができる。
+
+```html
+<form>
+  <button formmethod="dialog">閉じる</button>
+</form>
+```
+
+## 例
+
+dialog の click イベントで閉じる処理を追加すると、
+モーダルをクリックしても閉じてしまうので伝播禁止 stopPropagation しておく。
+
+<Example />
+
+<FileCode path={'dialog/example.tsx'} />
+
+## 背景のスクロールを出来ないようにする
+
+このサイトでは、以下をグローバルの CSS に書いているので、
+上の例で dialog が開いている間は html のスクロールができなくなる。
+
+```css
+dialog:modal {
+  html:has(&[open]) {
+    overflow: hidden;
+  }
+}
+```
+
+あるいは直接 JS で制御する
+
+```ts
+window.document.body.style.overflow = next ? 'hidden' : '';
+```
+
+## 参考
+
+- [dialog | HTML Standard](https://momdo.github.io/html/interactive-elements.html#the-dialog-element)
+- [dialog | MDN](https://developer.mozilla.org/ja/docs/Web/HTML/Element/dialog)
+- [::backdrop | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop)
+- [::modal | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/:modal)

@@ -11,10 +11,11 @@ SyntaxHighlighter.registerLanguage('tsx', tsx);
 type Props = {
   lang: string;
   code: string;
-  data: ElementData | undefined;
+  data?: ElementData | undefined;
+  showLineNumbers?: boolean;
 };
 
-export const CodeBlock = ({ lang, code, data }: Props) => {
+export const CodeBlock = ({ lang, code, data, showLineNumbers }: Props) => {
   const highlightNumbers = isMetaData(data) ? parseNumericRange(data.meta) : [];
   const customStyle: React.CSSProperties | undefined = { fontSize: '14px' };
 
@@ -37,11 +38,12 @@ export const CodeBlock = ({ lang, code, data }: Props) => {
   return (
     <SyntaxHighlighter
       PreTag="div"
+      className="not-prose"
       customStyle={customStyle}
       language={lang}
       lineNumberStyle={lineNumberStyle}
       lineProps={lineProps}
-      showLineNumbers
+      showLineNumbers={showLineNumbers}
       style={style}
       wrapLines
     >

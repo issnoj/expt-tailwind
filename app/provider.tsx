@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useCallback } from 'react';
 
 type AppContextType = {
-  openMenu: boolean;
-  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpenMenu: boolean;
+  openMenu: (value?: boolean) => void;
 };
 
 const AppContext = React.createContext<AppContextType | null>(null);
@@ -22,19 +22,24 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [openMenu, setOpenMenu] = React.useState(false);
+  const [isOpenMenu, setIsOpenMenu] = React.useState(false);
+
+  const openMenu = useCallback(
+    (value?: boolean) => {
+      const next = value === undefined ? !isOpenMenu : value;
+      window.document.body.style.overflow = next ? 'hidden' : '';
+      setIsOpenMenu(next);
+    },
+    [isOpenMenu],
+  );
+
   return (
-    <AppContext.Provider value={{ openMenu, setOpenMenu }}>
+    <AppContext.Provider value={{ isOpenMenu, openMenu }}>
       {children}
-      {openMenu && (
+      {isOpenMenu && (
         <div
           className={'fixed inset-0 z-30 bg-gray-900/50'}
-          onClick={() => {
-            if (window.document.body.classList.contains('overflow-hidden')) {
-              window.document.body.classList.remove('overflow-hidden');
-            }
-            setOpenMenu(false);
-          }}
+          onClick={() => openMenu(false)}
         />
       )}
     </AppContext.Provider>

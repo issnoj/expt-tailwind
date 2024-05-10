@@ -3,7 +3,7 @@ import {
   linkAnimateBgDirections,
   LinkAnimateBg,
 } from '@/components/link/link-animate-bg';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const meta: Meta<typeof LinkAnimateBg> = {
   component: LinkAnimateBg,

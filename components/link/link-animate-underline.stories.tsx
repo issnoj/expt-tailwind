@@ -3,7 +3,7 @@ import {
   linkAnimateUnderlinedirections,
   LinkAnimateUnderline,
 } from '@/components/link/link-animate-underline';
-import { Board } from '@/components/ui/board';
+import { Board } from '@/components/layouts/board';
 
 const meta: Meta<typeof LinkAnimateUnderline> = {
   component: LinkAnimateUnderline,

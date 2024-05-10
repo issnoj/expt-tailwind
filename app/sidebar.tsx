@@ -4,30 +4,10 @@ import { Link } from '@/components/ui/link';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { useAppContext } from '@/app/provider';
-import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export const ToggleSidebar = () => {
-  const { openMenu, setOpenMenu } = useAppContext();
-  const pathname = usePathname();
-
-  const handleClick = () => {
-    const next = !openMenu;
-    if (next) {
-      window.document.body.classList.add('overflow-hidden');
-    } else if (window.document.body.classList.contains('overflow-hidden')) {
-      window.document.body.classList.remove('overflow-hidden');
-    }
-    setOpenMenu(next);
-  };
-
-  useEffect(() => {
-    setOpenMenu(false);
-    if (window.document.body.classList.contains('overflow-hidden')) {
-      window.document.body.classList.remove('overflow-hidden');
-    }
-  }, [pathname, setOpenMenu]);
-
+  const { isOpenMenu, openMenu } = useAppContext();
   return (
     <button
       className={cn(
@@ -35,21 +15,21 @@ export const ToggleSidebar = () => {
         'size-10 rounded-full md:hidden',
         'hover:bg-accent',
       )}
-      onClick={handleClick}
+      onClick={() => openMenu()}
     >
-      {openMenu ? <X /> : <Menu />}
+      {isOpenMenu ? <X /> : <Menu />}
     </button>
   );
 };
 
 export const Sidebar = () => {
-  const { openMenu } = useAppContext();
+  const { isOpenMenu } = useAppContext();
   return (
     <nav
       className={cn(
         'fixed top-0 z-40 h-full w-72 border-r bg-background pt-16 text-sm shadow',
         'transition-transform md:translate-x-0 md:opacity-100',
-        !openMenu && '-translate-x-full',
+        !isOpenMenu && '-translate-x-full',
       )}
     >
       <div
@@ -106,6 +86,7 @@ const SideHeading = ({
 };
 
 const SideLink: typeof Link = ({ children, ...props }) => {
+  const { openMenu } = useAppContext();
   const current = usePathname() === props.href;
   return (
     <Link
@@ -116,6 +97,7 @@ const SideLink: typeof Link = ({ children, ...props }) => {
         current &&
           'pointer-events-none border-transparent from-background to-background',
       )}
+      onClick={() => openMenu(false)}
       {...props}
     >
       {children}

@@ -12,8 +12,9 @@ export const Link = ({ external, href, className, ...props }: LinkProps) => {
   return (
     <NextLink
       className={cn(
-        'inline-flex items-center underline',
+        ' underline',
         'hover:opacity-80 active:opacity-80',
+        external && 'inline-flex items-center',
         className,
       )}
       href={href}

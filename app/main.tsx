@@ -9,12 +9,12 @@ type Props = {
 };
 
 export const Main = ({ children }: Props) => {
-  const { openMenu, setOpenMenu } = useAppContext();
+  const { isOpenMenu } = useAppContext();
   return (
     <main
       className={cn(
         'w-full pb-20 transition-transform md:pl-72',
-        openMenu ? 'translate-x-72' : '',
+        isOpenMenu ? 'translate-x-72' : '',
       )}
     >
       {children}
