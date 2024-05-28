@@ -50,7 +50,12 @@ export const Sidebar = () => {
 
           <SideHeading>容器</SideHeading>
           <SideLink href={'/table'}>テーブル</SideLink>
-          <SideLink href={'/data-table'}>データテーブル</SideLink>
+          <SideLink href={'/data-table-client'}>
+            データテーブル (client)
+          </SideLink>
+          <SideLink href={'/data-table-server'}>
+            データテーブル (server)
+          </SideLink>
           <SideLink href={'/timeline'}>タイムライン</SideLink>
           <SideLink href={'/carousel'}>カルーセル</SideLink>
           <SideLink href={'/alert'}>アラート</SideLink>

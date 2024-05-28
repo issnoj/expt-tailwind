@@ -1,6 +1,6 @@
 import { Content } from '@/components/layouts/content';
 import { Sample } from '@/components/layouts/sample';
-import { StaticDataTableSample } from '@/app/data-table/static-data-table-sample';
+import { ClientDataTableSample } from '@/app/data-table-client/client-data-table-sample';
 
 async function getData() {
   const res = await fetch(
@@ -18,9 +18,9 @@ const Page = async () => {
   const data = await getData();
 
   return (
-    <Content title={'データテーブル'}>
+    <Content title={'クライアントサイドデータテーブル'}>
       <Sample>
-        <StaticDataTableSample data={data.pokemon} />
+        <ClientDataTableSample data={data.pokemon} />
       </Sample>
     </Content>
   );

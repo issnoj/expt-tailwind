@@ -25,8 +25,8 @@ import {
 } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
-import { DataTableViewOptions } from '@/app/data-table/data-table-view-options';
-import { DataTablePagination } from '@/app/data-table/data-table-pagination';
+import { DataTableViewOptions } from '@/app/data-table-client/data-table-view-options';
+import { DataTablePagination } from '@/app/data-table-client/data-table-pagination';
 
 type Props<TData, TValue> = {
   columns: ColumnDef<TData, TValue>[];

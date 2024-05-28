@@ -1,6 +1,6 @@
 'use client';
 
-import { DataTable } from '@/app/data-table/data-table';
+import { DataTable } from '@/app/data-table-client/data-table';
 import { columns, Pokemon } from './columns';
 import { Board } from '@/components/layouts/board';
 import { Input } from '@/components/ui/input';
@@ -9,9 +9,9 @@ type Props = {
   data: Pokemon[];
 };
 
-export const StaticDataTableSample = ({ data }: Props) => {
+export const ClientDataTableSample = ({ data }: Props) => {
   return (
-    <Board title={'静的データテーブル'}>
+    <Board>
       <DataTable
         columns={columns}
         data={data}
